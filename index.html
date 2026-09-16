@@ -290,6 +290,18 @@
             border-radius: 12px; font-size: 1em; cursor: pointer; margin-bottom: 20px;
         }
         .audio-play-btn:hover { background: #2a3a90; }
+        .dict-row {
+            display: flex; align-items: center; gap: 10px;
+            background: #fff; padding: 8px 12px; border: 1px solid #eee;
+            border-radius: 10px;
+        }
+        .dict-num { min-width: 22px; font-weight: 600; color: #1a2980; text-align: center; }
+        .dict-audio {
+            background: #26d0ce; color: #fff; border: none; border-radius: 10px;
+            width: 44px; height: 44px; font-size: 18px; cursor: pointer; flex-shrink: 0;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .dict-audio:hover { background: #1a2980; transform: scale(1.05); }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
@@ -856,6 +868,27 @@
                 <button class="btn" onclick="checkComprehension()">Check Answers / Проверить</button>
                 <div class="feedback" id="comprehension-feedback"></div>
             </div>
+
+            <div class="homework-box" style="background: #f8f9fa;">
+                <h4>🎧 Dictation: Listen and write <span class="translation">Диктант: послушай и запиши</span></h4>
+                <p style="color:#555; margin-bottom:12px;">Tap 🔊 to hear each word (or ▶️ Play all), then type what you hear.
+                    <span class="translation">Нажми 🔊, чтобы услышать слово (или ▶️ «Проиграть все»), затем напиши то, что слышишь.</span></p>
+                <div style="display:grid; gap:10px; max-width:560px; margin:0 auto; margin-bottom:15px;">
+                    <div class="dict-row"><span class="dict-num">1.</span><button class="dict-audio dict-word" data-word="Hello" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Hello" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">2.</span><button class="dict-audio dict-word" data-word="Goodbye" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Goodbye" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">3.</span><button class="dict-audio dict-word" data-word="Teacher" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Teacher" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">4.</span><button class="dict-audio dict-word" data-word="Doctor" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Doctor" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">5.</span><button class="dict-audio dict-word" data-word="Student" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Student" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">6.</span><button class="dict-audio dict-word" data-word="Please" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Please" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">7.</span><button class="dict-audio dict-word" data-word="Sorry" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Sorry" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                    <div class="dict-row"><span class="dict-num">8.</span><button class="dict-audio dict-word" data-word="Thank you" title="Listen / Послушать">🔊</button><input type="text" class="text-answer dict-input" data-correct="Thank you" placeholder="type the word..." autocomplete="off" autocapitalize="off" spellcheck="false" style="flex:1; min-width:0;"></div>
+                </div>
+                <div style="text-align:center;">
+                    <button class="btn" onclick="playDictation()">▶️ Play all / Проиграть все</button>
+                    <button class="btn" onclick="checkDictation()">Check / Проверить</button>
+                </div>
+                <div class="feedback" id="dictation-feedback"></div>
+            </div>
         </div>
 
         <!-- WRITING -->
@@ -1320,6 +1353,57 @@
             fb.className = `feedback show ${correct >= 4 ? 'correct' : 'incorrect'}`;
             fb.innerHTML = `<h4>${correct >= 4 ? '🎧 Good listening! / Отличное аудирование!' : '📝 Результат: ' + correct + '/5'}</h4>` +
                 `<p>${correct >= 4 ? 'You understood the dialogues well! / Ты хорошо понял диалоги!' : 'Listen again and try to catch the details. / Послушай ещё раз и постарайся уловить детали.'}</p>`;
+        }
+
+        // ===== DICTATION =====
+        document.querySelectorAll('.dict-word').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const w = btn.dataset.word;
+                if (w) speakWord(w);
+            });
+        });
+
+        function playDictation() {
+            if (!('speechSynthesis' in window)) return;
+            speechSynthesis.cancel();
+            const words = [...document.querySelectorAll('#listening .dict-word')];
+            const voices = speechSynthesis.getVoices();
+            const en = voices.find(v => v.lang === 'en-US' || v.lang === 'en-GB') || null;
+            words.forEach((btn, i) => {
+                setTimeout(() => {
+                    speechSynthesis.cancel();
+                    const u = new SpeechSynthesisUtterance(btn.dataset.word);
+                    if (en) u.voice = en;
+                    u.lang = 'en-US';
+                    u.rate = 0.65;
+                    speechSynthesis.speak(u);
+                }, i * 3500);
+            });
+        }
+
+        function checkDictation() {
+            const inputs = document.querySelectorAll('#listening .dict-input');
+            const total = inputs.length;
+            let correct = 0;
+            inputs.forEach(input => {
+                const user = input.value.trim().toLowerCase().replace(/\s+/g, ' ');
+                const expected = input.dataset.correct.toLowerCase().replace(/\s+/g, ' ');
+                if (user === expected) {
+                    correct++;
+                    input.style.borderColor = '#27ae60';
+                    input.style.backgroundColor = '#d4edda';
+                } else {
+                    input.style.borderColor = '#e74c3c';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.value = input.value + ' → ' + input.dataset.correct;
+                }
+            });
+            const fb = document.getElementById('dictation-feedback');
+            fb.classList.add('show');
+            fb.className = `feedback show ${correct === total ? 'correct' : 'incorrect'}`;
+            fb.innerHTML = `<h4>${correct === total ? '🎉 Perfect spelling! / Отлично!' : '📝 Результат: ' + correct + '/' + total}</h4>` +
+                `<p>${correct === total ? 'You spelled all the words correctly! / Ты правильно написал(а) все слова!' : 'Listen again: press 🔊 and try once more. / Послушай ещё раз: нажми 🔊 и попробуй снова.'}</p>`;
         }
 
         // ===== OPTION BUTTONS =====
