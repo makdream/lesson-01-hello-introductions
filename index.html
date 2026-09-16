@@ -360,52 +360,68 @@
             <svg viewBox="0 0 800 340" role="img" aria-label="Greetings and introductions — Приветствия и знакомство" style="width:100%; max-width:640px; height:auto; display:block; margin:0 auto 20px;" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="greetBg" x1="0" y1="0" x2="1" y2="1">
-                        <stop offset="0" stop-color="#e8f4fd"/>
+                        <stop offset="0" stop-color="#eef5ff"/>
                         <stop offset="1" stop-color="#cfe8ff"/>
                     </linearGradient>
+                    <linearGradient id="bodyL" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#2b3fae"/>
+                        <stop offset="1" stop-color="#1a2980"/>
+                    </linearGradient>
+                    <linearGradient id="bodyR" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#4fd8d4"/>
+                        <stop offset="1" stop-color="#26d0ce"/>
+                    </linearGradient>
                 </defs>
-                <rect width="800" height="340" rx="26" fill="url(#greetBg)"/>
-                <circle cx="88" cy="78" r="18" fill="#26d0ce" opacity="0.25"/>
-                <circle cx="726" cy="64" r="26" fill="#1a2980" opacity="0.15"/>
-                <circle cx="762" cy="282" r="14" fill="#26d0ce" opacity="0.3"/>
-                <circle cx="38" cy="252" r="12" fill="#1a2980" opacity="0.2"/>
-                <rect x="256" y="216" width="88" height="99" rx="30" fill="#1a2980"/>
-                <rect x="456" y="216" width="88" height="99" rx="30" fill="#26d0ce"/>
-                <circle cx="300" cy="168" r="48" fill="#ffd9b3"/>
-                <path d="M252 168 a48 48 0 0 1 96 0 z" fill="#1a2980"/>
-                <circle cx="500" cy="168" r="48" fill="#ffd9b3"/>
-                <path d="M452 168 a48 48 0 0 1 96 0 z" fill="#26d0ce"/>
-                <circle cx="285" cy="176" r="4" fill="#2b2b2b"/>
-                <circle cx="315" cy="176" r="4" fill="#2b2b2b"/>
-                <path d="M286 196 q14 10 28 0" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" fill="none"/>
-                <circle cx="485" cy="176" r="4" fill="#2b2b2b"/>
-                <circle cx="515" cy="176" r="4" fill="#2b2b2b"/>
-                <path d="M486 196 q14 10 28 0" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" fill="none"/>
-                <path d="M344 250 q34 10 54 -4" stroke="#1a2980" stroke-width="12" stroke-linecap="round" fill="none"/>
-                <path d="M456 250 q-34 10 -54 -4" stroke="#26d0ce" stroke-width="12" stroke-linecap="round" fill="none"/>
-                <circle cx="398" cy="250" r="13" fill="#ffd9b3" stroke="#1a2980" stroke-width="2"/>
-                <circle cx="402" cy="250" r="13" fill="#ffd9b3" stroke="#26d0ce" stroke-width="2"/>
-                <polygon points="120,98 152,98 136,118" fill="#ffffff"/>
-                <rect x="36" y="28" width="248" height="70" rx="22" fill="#ffffff" stroke="#26d0ce" stroke-width="2"/>
-                <text x="160" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#1a2980">👋 Hello!</text>
-                <polygon points="668,98 700,98 684,118" fill="#ffffff"/>
-                <rect x="516" y="28" width="262" height="70" rx="22" fill="#ffffff" stroke="#1a2980" stroke-width="2"/>
-                <text x="647" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" fill="#1a2980">😊 Nice to meet you!</text>
-                <text x="400" y="332" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1a2980" opacity="0.65">Greetings &amp; Introductions · Приветствия и знакомство</text>
+                <rect width="800" height="340" rx="28" fill="url(#greetBg)"/>
+                <circle cx="120" cy="286" r="130" fill="#26d0ce" opacity="0.07"/>
+                <circle cx="710" cy="40" r="150" fill="#1a2980" opacity="0.06"/>
+                <circle cx="60" cy="120" r="9" fill="#1a2980" opacity="0.2"/>
+                <circle cx="744" cy="200" r="7" fill="#26d0ce" opacity="0.35"/>
+                <circle cx="40" cy="206" r="14" fill="none" stroke="#26d0ce" stroke-width="3" opacity="0.55"/>
+                <circle cx="700" cy="160" r="24" fill="none" stroke="#1a2980" stroke-width="2" stroke-dasharray="5 8" opacity="0.45"/>
+                <path d="M153 250 v14 M146 257 h14" stroke="#1a2980" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                <path d="M780 120 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#26d0ce" opacity="0.7"/>
+                <ellipse cx="296" cy="322" rx="66" ry="9" fill="#1a2980" opacity="0.1"/>
+                <ellipse cx="504" cy="322" rx="66" ry="9" fill="#1a2980" opacity="0.1"/>
+                <rect x="252" y="206" width="88" height="114" rx="36" fill="url(#bodyL)"/>
+                <rect x="460" y="206" width="88" height="114" rx="36" fill="url(#bodyR)"/>
+                <path d="M344 252 q34 12 56 -2" stroke="url(#bodyL)" stroke-width="14" stroke-linecap="round" fill="none"/>
+                <path d="M456 252 q-34 12 -56 -2" stroke="url(#bodyR)" stroke-width="14" stroke-linecap="round" fill="none"/>
+                <circle cx="399" cy="252" r="12" fill="#ffd9b3" stroke="#1a2980" stroke-width="2.5"/>
+                <circle cx="401" cy="252" r="12" fill="#ffd9b3" stroke="#26d0ce" stroke-width="2.5"/>
+                <circle cx="296" cy="160" r="52" fill="#ffd9b3"/>
+                <path d="M244 170 a52 52 0 0 1 104 0 l0 -8 a52 52 0 0 0 -104 8 z" fill="#1a2980"/>
+                <circle cx="282" cy="166" r="4.5" fill="#2b2b2b"/>
+                <circle cx="310" cy="166" r="4.5" fill="#2b2b2b"/>
+                <path d="M285 188 q11 10 22 0" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="504" cy="160" r="52" fill="#ffd9b3"/>
+                <path d="M452 170 a52 52 0 0 1 104 0 l0 -8 a52 52 0 0 0 -104 8 z" fill="#26d0ce"/>
+                <circle cx="490" cy="166" r="4.5" fill="#2b2b2b"/>
+                <circle cx="518" cy="166" r="4.5" fill="#2b2b2b"/>
+                <path d="M493 188 q11 10 22 0" stroke="#2b2b2b" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <rect x="30" y="26" width="262" height="84" rx="28" fill="#1a2980" opacity="0.06"/>
+                <polygon points="118,114 156,114 137,136" fill="#ffffff"/>
+                <rect x="34" y="30" width="262" height="84" rx="28" fill="#ffffff" stroke="#26d0ce" stroke-width="2.5"/>
+                <text x="165" y="80" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#1a2980" letter-spacing="1">👋 HELLO!</text>
+                <rect x="508" y="26" width="286" height="84" rx="28" fill="#1a2980" opacity="0.06"/>
+                <polygon points="664,114 702,114 683,136" fill="#ffffff"/>
+                <rect x="512" y="30" width="286" height="84" rx="28" fill="#ffffff" stroke="#1a2980" stroke-width="2.5"/>
+                <text x="655" y="80" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#1a2980" letter-spacing="1">😊 NICE TO MEET YOU!</text>
+                <text x="400" y="332" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15.5" font-weight="600" fill="#1a2980" opacity="0.6" letter-spacing="1">GREETINGS &amp; INTRODUCTIONS · Приветствия и знакомство</text>
             </svg>
 
             <div class="question-box">
-                <p>1️⃣ Can you say "Hello" in English? <span class="translation">Можешь сказать «Привет» по-английски?</span></p>
-                <p>2️⃣ What is your name? <span class="translation">Как тебя зовут?</span></p>
-                <p>3️⃣ Where are you from? <span class="translation">Откуда ты?</span></p>
-                <p>4️⃣ What do you do? (job) <span class="translation">Кем ты работаешь? (профессия)</span></p>
-                <p>5️⃣ How are you today? <span class="translation">Как у тебя дела сегодня?</span></p>
+                <p>1️⃣ Can you say "Hello" in English? <button class="talk-btn" data-say="Can you say Hello in English?">🔊</button> <span class="translation">Можешь сказать «Привет» по-английски?</span></p>
+                <p>2️⃣ What is your name? <button class="talk-btn" data-say="What is your name?">🔊</button> <span class="translation">Как тебя зовут?</span></p>
+                <p>3️⃣ Where are you from? <button class="talk-btn" data-say="Where are you from?">🔊</button> <span class="translation">Откуда ты?</span></p>
+                <p>4️⃣ What do you do? (job) <button class="talk-btn" data-say="What do you do?">🔊</button> <span class="translation">Кем ты работаешь? (профессия)</span></p>
+                <p>5️⃣ How are you today? <button class="talk-btn" data-say="How are you today?">🔊</button> <span class="translation">Как у тебя дела сегодня?</span></p>
             </div>
 
             <h3>💡 Model Introduction <span class="translation">Образец представления</span></h3>
-            <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!"
+            <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!" <button class="talk-btn" data-say="Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!">🔊</button>
                 <div class="translation">«Привет! Меня зовут Анна. Я из Бали. Я учитель. У меня всё хорошо!»</div></div>
-            <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!"
+            <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!" <button class="talk-btn" data-say="Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!">🔊</button>
                 <div class="translation">«Привет! Я Джон. Я из Джакарты. Я водитель. У меня всё хорошо, спасибо!»</div></div>
         </div>
 
