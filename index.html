@@ -104,6 +104,14 @@
             transition: background 0.2s, transform 0.2s;
         }
         .vocab-speaker:hover { background: #1a2980; transform: scale(1.1); }
+        .talk-btn {
+            background: #26d0ce; color: #fff; border: none; border-radius: 50%;
+            width: 26px; height: 26px; font-size: 13px; line-height: 1; cursor: pointer;
+            margin-left: 8px; flex-shrink: 0; vertical-align: middle;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .talk-btn:hover { background: #1a2980; transform: scale(1.1); }
         .record-controls { display: flex; gap: 6px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
         .record-btn, .play-record-btn, .delete-record-btn {
             background: #f0f3ff; border: 2px solid #1a2980; color: #1a2980;
@@ -661,13 +669,13 @@
 
             <div class="grammar-box">
                 <h3>👤 Subject Pronouns</h3>
-                <div class="example">👤 <strong>I</strong> — Я</div>
-                <div class="example">👤 <strong>You</strong> — Ты / Вы</div>
-                <div class="example">👤 <strong>He</strong> — Он</div>
-                <div class="example">👤 <strong>She</strong> — Она</div>
-                <div class="example">🌍 <strong>It</strong> — Оно (предмет, животное, город)</div>
-                <div class="example">👥 <strong>We</strong> — Мы</div>
-                <div class="example">👥 <strong>They</strong> — Они</div>
+                <div class="example">👤 <strong>I</strong> — Я <button class="talk-btn" data-say="I">🔊</button></div>
+                <div class="example">👤 <strong>You</strong> — Ты / Вы <button class="talk-btn" data-say="You">🔊</button></div>
+                <div class="example">👤 <strong>He</strong> — Он <button class="talk-btn" data-say="He">🔊</button></div>
+                <div class="example">👤 <strong>She</strong> — Она <button class="talk-btn" data-say="She">🔊</button></div>
+                <div class="example">🌍 <strong>It</strong> — Оно (предмет, животное, город) <button class="talk-btn" data-say="It">🔊</button></div>
+                <div class="example">👥 <strong>We</strong> — Мы <button class="talk-btn" data-say="We">🔊</button></div>
+                <div class="example">👥 <strong>They</strong> — Они <button class="talk-btn" data-say="They">🔊</button></div>
             </div>
 
             <div class="grammar-box">
@@ -678,13 +686,13 @@
                         <tr><th>Pronoun</th><th>to be</th><th>Example</th><th>Translation</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td><strong>I</strong></td><td>am</td><td>I <strong>am</strong> a teacher.</td><td>Я учитель.</td></tr>
-                        <tr><td><strong>You</strong></td><td>are</td><td>You <strong>are</strong> my friend.</td><td>Ты мой друг.</td></tr>
-                        <tr><td><strong>He</strong></td><td>is</td><td>He <strong>is</strong> from Bali.</td><td>Он из Бали.</td></tr>
-                        <tr><td><strong>She</strong></td><td>is</td><td>She <strong>is</strong> a student.</td><td>Она студентка.</td></tr>
-                        <tr><td><strong>It</strong></td><td>is</td><td>It <strong>is</strong> a good day.</td><td>Хороший день.</td></tr>
-                        <tr><td><strong>We</strong></td><td>are</td><td>We <strong>are</strong> happy.</td><td>Мы счастливы.</td></tr>
-                        <tr><td><strong>They</strong></td><td>are</td><td>They <strong>are</strong> from Jakarta.</td><td>Они из Джакарты.</td></tr>
+                        <tr><td><strong>I</strong></td><td>am</td><td>I <strong>am</strong> a teacher. <button class="talk-btn" data-say="I am a teacher.">🔊</button></td><td>Я учитель.</td></tr>
+                        <tr><td><strong>You</strong></td><td>are</td><td>You <strong>are</strong> my friend. <button class="talk-btn" data-say="You are my friend.">🔊</button></td><td>Ты мой друг.</td></tr>
+                        <tr><td><strong>He</strong></td><td>is</td><td>He <strong>is</strong> from Bali. <button class="talk-btn" data-say="He is from Bali.">🔊</button></td><td>Он из Бали.</td></tr>
+                        <tr><td><strong>She</strong></td><td>is</td><td>She <strong>is</strong> a student. <button class="talk-btn" data-say="She is a student.">🔊</button></td><td>Она студентка.</td></tr>
+                        <tr><td><strong>It</strong></td><td>is</td><td>It <strong>is</strong> a good day. <button class="talk-btn" data-say="It is a good day.">🔊</button></td><td>Это хороший день.</td></tr>
+                        <tr><td><strong>We</strong></td><td>are</td><td>We <strong>are</strong> happy. <button class="talk-btn" data-say="We are happy.">🔊</button></td><td>Мы счастливы.</td></tr>
+                        <tr><td><strong>They</strong></td><td>are</td><td>They <strong>are</strong> from Jakarta. <button class="talk-btn" data-say="They are from Jakarta.">🔊</button></td><td>Они из Джакарты.</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -694,21 +702,21 @@
                 <h3>📎 Short Forms (Contractions) <span class="translation">Краткие формы (сокращения)</span></h3>
                 <p style="color:#555; margin-bottom:12px;">In spoken English, we usually use short forms:
                     <span class="translation">В разговорной речи мы обычно используем краткие формы:</span></p>
-                <div class="example">I am → <strong>I'm</strong> &nbsp;|&nbsp; You are → <strong>You're</strong> &nbsp;|&nbsp; He is → <strong>He's</strong></div>
-                <div class="example">She is → <strong>She's</strong> &nbsp;|&nbsp; It is → <strong>It's</strong> &nbsp;|&nbsp; We are → <strong>We're</strong> &nbsp;|&nbsp; They are → <strong>They're</strong></div>
+                <div class="example">I am → <strong>I'm</strong> <button class="talk-btn" data-say="I'm">🔊</button> &nbsp;|&nbsp; You are → <strong>You're</strong> <button class="talk-btn" data-say="You're">🔊</button> &nbsp;|&nbsp; He is → <strong>He's</strong> <button class="talk-btn" data-say="He's">🔊</button></div>
+                <div class="example">She is → <strong>She's</strong> <button class="talk-btn" data-say="She's">🔊</button> &nbsp;|&nbsp; It is → <strong>It's</strong> <button class="talk-btn" data-say="It's">🔊</button> &nbsp;|&nbsp; We are → <strong>We're</strong> <button class="talk-btn" data-say="We're">🔊</button> &nbsp;|&nbsp; They are → <strong>They're</strong> <button class="talk-btn" data-say="They're">🔊</button></div>
             </div>
 
             <div class="grammar-box">
                 <h3>❓ Questions with "to be" <span class="translation">Вопросы с глаголом «быть»</span></h3>
                 <p style="color:#555; margin-bottom:12px;">To make a question, put the verb BEFORE the subject:
                     <span class="translation">Чтобы задать вопрос, поставь глагол ПЕРЕД подлежащим:</span></p>
-                <div class="example">❓ <strong>Are</strong> you a teacher? — ✅ Yes, I am. / ❌ No, I'm not.
+                <div class="example">❓ <strong>Are</strong> you a teacher? — ✅ Yes, I am. / ❌ No, I'm not. <button class="talk-btn" data-say="Are you a teacher? Yes, I am. No, I'm not.">🔊</button>
                     <div class="translation">Ты учитель? — Да. / Нет.</div></div>
-                <div class="example">❓ <strong>Is</strong> she from Bali? — ✅ Yes, she is. / ❌ No, she isn't.
+                <div class="example">❓ <strong>Is</strong> she from Bali? — ✅ Yes, she is. / ❌ No, she isn't. <button class="talk-btn" data-say="Is she from Bali? Yes, she is. No, she isn't.">🔊</button>
                     <div class="translation">Она из Бали? — Да. / Нет.</div></div>
-                <div class="example">❓ <strong>Is</strong> he your friend? — ✅ Yes, he is. / ❌ No, he isn't.
+                <div class="example">❓ <strong>Is</strong> he your friend? — ✅ Yes, he is. / ❌ No, he isn't. <button class="talk-btn" data-say="Is he your friend? Yes, he is. No, he isn't.">🔊</button>
                     <div class="translation">Он твой друг? — Да. / Нет.</div></div>
-                <div class="example">❓ <strong>Are</strong> they students? — ✅ Yes, they are. / ❌ No, they aren't.
+                <div class="example">❓ <strong>Are</strong> they students? — ✅ Yes, they are. / ❌ No, they aren't. <button class="talk-btn" data-say="Are they students? Yes, they are. No, they aren't.">🔊</button>
                     <div class="translation">Они студенты? — Да. / Нет.</div></div>
             </div>
 
@@ -1023,6 +1031,15 @@
             utterance.rate = 0.8;
             speechSynthesis.speak(utterance);
         }
+
+        // ===== GRAMMAR TALK BUTTONS =====
+        document.querySelectorAll('.talk-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.stopPropagation();
+                const text = btn.getAttribute('data-say');
+                if (text) speakWord(text);
+            });
+        });
 
         // ===== VOCAB SPEAKER + RECORD BUTTONS =====
         document.querySelectorAll('.vocab-card').forEach(card => {
