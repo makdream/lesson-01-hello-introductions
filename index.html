@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a2980 0%, #16213e 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -23,7 +23,7 @@
         }
         header h1 {
             font-size: 2.5em;
-            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -35,7 +35,7 @@
             margin-top: 20px; flex-wrap: wrap;
         }
         .lesson-info span {
-            background: #e8f4fd; color: #0f3460;
+            background: #e8f4fd; color: #1a2980;
             padding: 8px 16px; border-radius: 20px;
             font-size: 0.9em; font-weight: 500;
         }
@@ -50,7 +50,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         .tab:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-        .tab.active { background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%); color: white; }
+        .tab.active { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; }
         .section {
             background: white; border-radius: 20px; padding: 35px;
             margin-bottom: 25px; display: none;
@@ -62,17 +62,17 @@
             display: flex; align-items: center; justify-content: space-between;
             margin-bottom: 20px; flex-wrap: wrap;
         }
-        .section-header h2 { color: #0f3460; }
+        .section-header h2 { color: #1a2980; }
         .section-icon { font-size: 1.8em; margin-right: 12px; }
         .section-time { color: #999; font-size: 0.9em; background: #f5f5f5; padding: 4px 12px; border-radius: 12px; }
-        h3 { color: #0f3460; margin: 20px 0 10px; }
-        h4 { color: #0f3460; margin-bottom: 12px; }
-        .game-hint { text-align: center; color: #0f3460; font-weight: 500; }
+        h3 { color: #1a2980; margin: 20px 0 10px; }
+        h4 { color: #1a2980; margin-bottom: 12px; }
+        .game-hint { text-align: center; color: #1a2980; font-weight: 500; }
         button:focus-visible, select:focus-visible, .text-answer:focus-visible {
-            outline: 3px solid #5b9bd5; outline-offset: 2px;
+            outline: 3px solid #26d0ce; outline-offset: 2px;
         }
         .instruction {
-            background: #f0f7ff; border-left: 4px solid #5b9bd5;
+            background: #e8f4fd; border-left: 4px solid #26d0ce;
             padding: 14px 18px; border-radius: 0 10px 10px 0;
             margin-bottom: 20px; color: #555; line-height: 1.6;
         }
@@ -86,41 +86,41 @@
         }
         .vocab-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .vocab-card.clickable { cursor: pointer; }
-        .vocab-card h5 { color: #0f3460; margin-bottom: 5px; font-size: 1.1em; display: flex; align-items: center; gap: 8px; }
+        .vocab-card h5 { color: #1a2980; margin-bottom: 5px; font-size: 1.1em; display: flex; align-items: center; gap: 8px; }
         .vocab-card p { color: #666; font-size: 0.9em; }
-        .vocab-card .transcription { color: #5b9bd5; font-size: 0.85em; font-style: italic; }
+        .vocab-card .transcription { color: #26d0ce; font-size: 0.85em; font-style: italic; }
         .vocab-emoji { font-size: 34px; margin-bottom: 8px; }
         .vocab-speaker {
-            background: #5b9bd5; color: #fff; border: none; border-radius: 50%;
+            background: #26d0ce; color: #fff; border: none; border-radius: 50%;
             width: 28px; height: 28px; font-size: 14px; line-height: 1;
             cursor: pointer; flex-shrink: 0;
             display: inline-flex; align-items: center; justify-content: center;
             transition: background 0.2s, transform 0.2s;
         }
-        .vocab-speaker:hover { background: #0f3460; transform: scale(1.1); }
+        .vocab-speaker:hover { background: #1a2980; transform: scale(1.1); }
         .record-controls { display: flex; gap: 6px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
         .record-btn, .play-record-btn, .delete-record-btn {
-            background: #f0f3ff; border: 2px solid #0f3460; color: #0f3460;
+            background: #f0f3ff; border: 2px solid #1a2980; color: #1a2980;
             border-radius: 8px; padding: 5px 10px; font-size: 0.85em;
             cursor: pointer; transition: background 0.2s, color 0.2s;
         }
-        .record-btn:hover, .play-record-btn:hover, .delete-record-btn:hover { background: #0f3460; color: #fff; }
+        .record-btn:hover, .play-record-btn:hover, .delete-record-btn:hover { background: #1a2980; color: #fff; }
         .delete-record-btn { border-color: #e74c3c; color: #e74c3c; }
         .delete-record-btn:hover { background: #e74c3c; color: #fff; }
         .record-btn.recording { background: #e74c3c; border-color: #e74c3c; color: #fff; }
         .save-record-btn {
-            background: #f0f3ff; border: 2px solid #0f3460; color: #0f3460;
+            background: #f0f3ff; border: 2px solid #1a2980; color: #1a2980;
             border-radius: 8px; padding: 5px 10px; font-size: 0.85em;
             cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;
         }
-        .save-record-btn:hover { background: #0f3460; color: #fff; }
+        .save-record-btn:hover { background: #1a2980; color: #fff; }
         .grammar-box {
             background: #f8f9fa; border-radius: 14px; padding: 22px;
             margin-bottom: 20px; border: 1px solid #eee;
         }
-        .grammar-box h3 { color: #0f3460; margin-bottom: 12px; font-size: 1.15em; }
+        .grammar-box h3 { color: #1a2980; margin-bottom: 12px; font-size: 1.15em; }
         .grammar-box .example {
-            background: #fff; border-left: 3px solid #5b9bd5;
+            background: #fff; border-left: 3px solid #26d0ce;
             padding: 10px 14px; margin-bottom: 8px; border-radius: 0 8px 8px 0;
             font-size: 0.95em; line-height: 1.5;
         }
@@ -129,7 +129,7 @@
             font-size: 0.95em;
         }
         .grammar-table th {
-            background: #0f3460; color: white; padding: 12px 16px;
+            background: #1a2980; color: white; padding: 12px 16px;
             text-align: left; font-weight: 600;
         }
         .grammar-table td {
@@ -144,8 +144,8 @@
             border-radius: 10px; cursor: pointer; font-size: 0.95em;
             transition: all 0.2s;
         }
-        .option-btn:hover { border-color: #5b9bd5; background: #f0f7ff; }
-        .option-btn.selected { border-color: #0f3460; background: #0f3460; color: white; }
+        .option-btn:hover { border-color: #26d0ce; background: #e8f4fd; }
+        .option-btn.selected { border-color: #1a2980; background: #1a2980; color: white; }
         .option-btn.correct { border-color: #27ae60; background: #d4edda; color: #155724; }
         .option-btn.incorrect { border-color: #e74c3c; background: #f8d7da; color: #721c24; }
         .question-box { margin-bottom: 18px; }
@@ -154,14 +154,14 @@
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
             border-radius: 10px; font-size: 1em; transition: border-color 0.2s;
         }
-        .text-answer:focus { border-color: #5b9bd5; outline: none; }
+        .text-answer:focus { border-color: #26d0ce; outline: none; }
         .btn {
-            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
             color: white; border: none; padding: 12px 28px; border-radius: 12px;
             font-size: 1em; font-weight: 600; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(26, 41, 128, 0.4); }
         .feedback {
             display: none; margin-top: 15px; padding: 15px;
             border-radius: 12px; text-align: center;
@@ -174,7 +174,7 @@
             font-size: 0.95em;
         }
         .example-answer {
-            background: #f0f3ff; border-left: 3px solid #0f3460;
+            background: #f0f3ff; border-left: 3px solid #1a2980;
             padding: 12px 16px; margin-bottom: 10px; border-radius: 0 10px 10px 0;
             font-size: 0.95em;
         }
@@ -190,7 +190,7 @@
             background: #f8f9fa; border-radius: 14px; padding: 22px;
             margin-bottom: 16px; border: 1px solid #eee;
         }
-        .homework-box h4 { color: #0f3460; margin-bottom: 12px; }
+        .homework-box h4 { color: #1a2980; margin-bottom: 12px; }
         .homework-item {
             display: flex; gap: 12px; align-items: flex-start;
             margin-bottom: 12px; padding: 12px; background: white;
@@ -198,10 +198,10 @@
         }
         .homework-item input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; }
         .tips-box {
-            background: #f0f7ff; border-radius: 14px; padding: 20px;
-            border: 1px solid #b3d9f2; margin-bottom: 16px;
+            background: #e8f4fd; border-radius: 14px; padding: 20px;
+            border: 1px solid #b2e0d5; margin-bottom: 16px;
         }
-        .tips-box h4 { color: #0f3460; margin-bottom: 10px; }
+        .tips-box h4 { color: #1a2980; margin-bottom: 10px; }
         .tips-box ul { margin-left: 20px; color: #555; line-height: 1.8; }
         .memory-grid {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
@@ -219,26 +219,26 @@
             display: flex; align-items: center; justify-content: center;
         }
         .memory-card .back {
-            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
+            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
             color: #fff; font-size: 26px; font-weight: 700;
         }
         .memory-card .front {
             transform: rotateY(180deg); background: #fff; border: 2px solid #e3e8f0;
         }
         .memory-card .front .pic { font-size: 48px; }
-        .memory-card .front .wrd { font-weight: 600; color: #0f3460; font-size: 1em; text-align: center; padding: 6px; line-height: 1.2; }
+        .memory-card .front .wrd { font-weight: 600; color: #1a2980; font-size: 1em; text-align: center; padding: 6px; line-height: 1.2; }
         .memory-card.matched .front { background: #d4edda; border-color: #27ae60; }
         .memory-card.matched { cursor: default; }
         .memory-stats {
             display: flex; justify-content: center; gap: 25px;
             flex-wrap: wrap; margin: 15px 0 0; color: #555; font-size: 1em;
         }
-        .memory-stats strong { color: #0f3460; }
+        .memory-stats strong { color: #1a2980; }
         .video-suggestion {
             background: #f0f3ff; border-radius: 14px; padding: 18px;
             margin-top: 20px; border: 1px solid #e0e7ff;
         }
-        .video-suggestion h4 { color: #0f3460; margin-bottom: 8px; }
+        .video-suggestion h4 { color: #1a2980; margin-bottom: 8px; }
         footer {
             text-align: center; color: rgba(255,255,255,0.7);
             font-size: 0.9em; background: rgba(0,0,0,0.15);
@@ -247,15 +247,15 @@
         footer p { margin-bottom: 5px; }
         .announcement-box {
             background: #f8f9fa; border-radius: 14px; padding: 18px;
-            margin-bottom: 14px; border-left: 4px solid #5b9bd5;
+            margin-bottom: 14px; border-left: 4px solid #26d0ce;
         }
-        .announcement-box .label { font-weight: 600; color: #0f3460; display: block; margin-bottom: 8px; }
+        .announcement-box .label { font-weight: 600; color: #1a2980; display: block; margin-bottom: 8px; }
         .announcement-box p { line-height: 1.6; font-size: 0.95em; }
         .audio-play-btn {
-            background: #0f3460; color: #fff; border: none; padding: 12px 24px;
+            background: #1a2980; color: #fff; border: none; padding: 12px 24px;
             border-radius: 12px; font-size: 1em; cursor: pointer; margin-bottom: 20px;
         }
-        .audio-play-btn:hover { background: #1a5276; }
+        .audio-play-btn:hover { background: #2a3a90; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
@@ -329,7 +329,7 @@
                 <span class="section-time">⏱ 8 min</span>
             </div>
 
-            <div class="tips-box" style="background:#f0f7ff; border-color:#5b9bd5;">
+            <div class="tips-box" style="background:#e8f4fd; border-color:#26d0ce;">
                 <h4>🎤 How to Use</h4>
                 <p>Tap <strong>🔊</strong> to hear the word. Tap <strong>🎤 Record</strong> to say it yourself. Then tap <strong>▶️</strong> to compare, or <strong>🗑 Delete</strong> and try again.</p>
             </div>
@@ -1168,7 +1168,7 @@
             clearInterval(memTimer);
             memTimer = setInterval(() => { memSeconds++; updateMemoryStats(); }, 1000);
             const s = document.getElementById('memory-status');
-            s.textContent = 'Match words and pictures!'; s.style.color = '#0f3460';
+            s.textContent = 'Match words and pictures!'; s.style.color = '#1a2980';
             updateMemoryStats();
         }
 
