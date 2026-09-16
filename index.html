@@ -29,6 +29,11 @@
             background-clip: text;
             margin-bottom: 10px;
         }
+        header h1 .translation {
+            color: #7b8894; -webkit-text-fill-color: #7b8894; background: none;
+            -webkit-background-clip: border-box; background-clip: border-box;
+            font-size: 0.45em; font-style: italic; display: block; margin-top: 6px;
+        }
         header p { color: #666; font-size: 1.1em; }
         .lesson-info {
             display: flex; justify-content: center; gap: 20px;
@@ -50,6 +55,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         .tab:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .tab small { display: block; font-weight: 400; font-size: 0.72em; line-height: 1.3; opacity: 0.85; margin-top: 2px; }
         .tab.active { background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%); color: white; }
         .section {
             background: white; border-radius: 20px; padding: 35px;
@@ -150,6 +156,11 @@
         .option-btn.incorrect { border-color: #e74c3c; background: #f8d7da; color: #721c24; }
         .question-box { margin-bottom: 18px; }
         .question-box p { margin-bottom: 8px; font-weight: 500; }
+        .translation { color: #7b8894; font-size: 0.85em; font-style: italic; }
+        .question-box .translation { display: block; margin-bottom: 8px; font-weight: 400; }
+        .announcement-box .translation { display: block; margin: 4px 0 10px; }
+        .vocab-card .translation { margin-top: 4px; }
+        .homework-item .translation { margin-top: 4px; color: #7b8894; font-size: 0.85em; font-style: italic; }
         .text-answer {
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
             border-radius: 10px; font-size: 1em; transition: border-color 0.2s;
@@ -274,64 +285,68 @@
 <body>
     <div class="container">
         <header>
-            <h1>👋 Lesson 1: Hello! Nice to Meet You</h1>
-            <p>English for Absolute Beginners — Daily Communication Basics</p>
+            <h1>👋 Lesson 1: Hello! Nice to Meet You <span class="translation">Привет! Приятно познакомиться</span></h1>
+            <p>English for Absolute Beginners — Daily Communication Basics <span class="translation">Английский для абсолютных новичков — основы ежедневного общения</span></p>
             <div class="lesson-info">
-                <span>⏱ 40 minutes</span>
-                <span>🎯 Level A0 (Beginner)</span>
-                <span>👤 Adult Learners</span>
-                <span>🗣️ Daily Communication</span>
+                <span>⏱ 40 minutes <span class="translation">минут</span></span>
+                <span>🎯 Level A0 (Beginner) <span class="translation">Уровень A0</span></span>
+                <span>👤 Adult Learners <span class="translation">Взрослые ученики</span></span>
+                <span>🗣️ Daily Communication <span class="translation">Ежедневное общение</span></span>
             </div>
         </header>
 
         <div class="tabs">
-            <button class="tab active" data-tab="warmup">👋 Warm-up</button>
-            <button class="tab" data-tab="vocab">📖 Vocabulary</button>
-            <button class="tab" data-tab="grammar">📚 Grammar</button>
-            <button class="tab" data-tab="listening">🎧 Listening</button>
-            <button class="tab" data-tab="writing">✍️ Writing</button>
-            <button class="tab" data-tab="memory">🧠 Memory Game</button>
-            <button class="tab" data-tab="homework">📝 Homework</button>
+            <button class="tab active" data-tab="warmup">👋 Warm-up<br><small>Разминка</small></button>
+            <button class="tab" data-tab="vocab">📖 Vocabulary<br><small>Словарь</small></button>
+            <button class="tab" data-tab="grammar">📚 Grammar<br><small>Грамматика</small></button>
+            <button class="tab" data-tab="listening">🎧 Listening<br><small>Аудирование</small></button>
+            <button class="tab" data-tab="writing">✍️ Writing<br><small>Письмо</small></button>
+            <button class="tab" data-tab="memory">🧠 Memory Game<br><small>Игра</small></button>
+            <button class="tab" data-tab="homework">📝 Homework<br><small>Дом. задание</small></button>
         </div>
 
         <!-- WARM-UP -->
         <div class="section active" id="warmup">
             <div class="section-header">
                 <span class="section-icon">👋</span>
-                <h2 class="section-title">Warm-up: First Contact</h2>
+                <h2 class="section-title">Warm-up: First Contact <span class="translation">Разминка: первое знакомство</span></h2>
                 <span class="section-time">⏱ 5 min</span>
             </div>
 
             <div class="instruction">
                 Today is your first English lesson! Don't worry — just try to say the words. The teacher will help you with pronunciation.
+                <div class="translation">Сегодня твой первый урок английского! Не переживай — просто попробуй произнести слова. Учитель поможет с произношением.</div>
             </div>
 
             <div style="text-align:center; font-size:3em; margin:20px 0;">👋🌅☀️🌇😊</div>
 
             <div class="question-box">
-                <p>1️⃣ Can you say "Hello" in English?</p>
-                <p>2️⃣ What is your name?</p>
-                <p>3️⃣ Where are you from?</p>
-                <p>4️⃣ What do you do? (job)</p>
-                <p>5️⃣ How are you today?</p>
+                <p>1️⃣ Can you say "Hello" in English? <span class="translation">Можешь сказать «Привет» по-английски?</span></p>
+                <p>2️⃣ What is your name? <span class="translation">Как тебя зовут?</span></p>
+                <p>3️⃣ Where are you from? <span class="translation">Откуда ты?</span></p>
+                <p>4️⃣ What do you do? (job) <span class="translation">Кем ты работаешь? (профессия)</span></p>
+                <p>5️⃣ How are you today? <span class="translation">Как у тебя дела сегодня?</span></p>
             </div>
 
-            <h3>💡 Model Introduction</h3>
-            <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!"</div>
-            <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!"</div>
+            <h3>💡 Model Introduction <span class="translation">Образец представления</span></h3>
+            <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!"
+                <div class="translation">«Привет! Меня зовут Анна. Я из Бали. Я учитель. У меня всё хорошо!»</div></div>
+            <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!"
+                <div class="translation">«Привет! Я Джон. Я из Джакарты. Я водитель. У меня всё хорошо, спасибо!»</div></div>
         </div>
 
         <!-- VOCABULARY -->
         <div class="section" id="vocab">
             <div class="section-header">
                 <span class="section-icon">📖</span>
-                <h2 class="section-title">Vocabulary: Greetings &amp; Introductions</h2>
+                <h2 class="section-title">Vocabulary: Greetings &amp; Introductions <span class="translation">Словарь: приветствия и знакомство</span></h2>
                 <span class="section-time">⏱ 8 min</span>
             </div>
 
             <div class="tips-box" style="background:#e8f4fd; border-color:#26d0ce;">
-                <h4>🎤 How to Use</h4>
+                <h4>🎤 How to Use <span class="translation">Как пользоваться</span></h4>
                 <p>Tap <strong>🔊</strong> to hear the word. Tap <strong>🎤 Record</strong> to say it yourself. Then tap <strong>▶️</strong> to compare, or <strong>🗑 Delete</strong> and try again.</p>
+                <div class="translation">Нажми <strong>🔊</strong>, чтобы услышать слово. Нажми <strong>🎤 Record</strong>, чтобы сказать самому. Затем нажми <strong>▶️</strong>, чтобы сравнить, или <strong>🗑 Delete</strong> и попробуй ещё раз.</div>
             </div>
 
             <div class="vocab-grid">
@@ -339,86 +354,102 @@
                     <h5>Hello / Hi</h5>
                     <p class="transcription">/həˈloʊ/ /haɪ/</p>
                     <p><strong>Привет</strong> — the most common greeting</p>
+                    <p class="translation">Самое распространённое приветствие</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Good morning</h5>
                     <p class="transcription">/ɡʊd ˈmɔːrnɪŋ/</p>
                     <p><strong>Доброе утро</strong> — greeting until 12:00</p>
+                    <p class="translation">Приветствие до 12:00</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Good afternoon</h5>
                     <p class="transcription">/ɡʊd ˌæftərˈnuːn/</p>
                     <p><strong>Добрый день</strong> — greeting from 12:00 to 18:00</p>
+                    <p class="translation">Приветствие с 12:00 до 18:00</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Good evening</h5>
                     <p class="transcription">/ɡʊd ˈiːvnɪŋ/</p>
                     <p><strong>Добрый вечер</strong> — greeting from 18:00</p>
+                    <p class="translation">Приветствие с 18:00</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Goodbye / Bye</h5>
                     <p class="transcription">/ɡʊdˈbaɪ/ /baɪ/</p>
                     <p><strong>До свидания</strong> — how to say goodbye</p>
+                    <p class="translation">Так прощаемся</p>
                 </div>
                 <div class="vocab-card">
                     <h5>My name is…</h5>
                     <p class="transcription">/maɪ neɪm ɪz/</p>
                     <p><strong>Меня зовут…</strong> — introducing yourself</p>
+                    <p class="translation">Представляемся</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Nice to meet you</h5>
                     <p class="transcription">/naɪs tə miːt juː/</p>
                     <p><strong>Приятно познакомиться</strong> — said after introduction</p>
+                    <p class="translation">Говорится после знакомства</p>
                 </div>
                 <div class="vocab-card">
                     <h5>How are you?</h5>
                     <p class="transcription">/haʊ ɑːr juː/</p>
                     <p><strong>Как дела?</strong> — asking how someone feels</p>
+                    <p class="translation">Спрашиваем, как у человека дела</p>
                 </div>
                 <div class="vocab-card">
                     <h5>I'm fine</h5>
                     <p class="transcription">/aɪm faɪn/</p>
                     <p><strong>У меня всё хорошо</strong> — positive answer</p>
+                    <p class="translation">Положительный ответ</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Thank you</h5>
                     <p class="transcription">/θæŋk juː/</p>
                     <p><strong>Спасибо</strong> — showing gratitude</p>
+                    <p class="translation">Выражаем благодарность</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Please</h5>
                     <p class="transcription">/pliːz/</p>
                     <p><strong>Пожалуйста</strong> — being polite</p>
+                    <p class="translation">Вежливая просьба</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Sorry</h5>
                     <p class="transcription">/ˈsɒri/</p>
                     <p><strong>Извините / Простите</strong> — apologizing</p>
+                    <p class="translation">Извиняемся</p>
                 </div>
                 <div class="vocab-card">
                     <h5>Yes</h5>
                     <p class="transcription">/jɛs/</p>
                     <p><strong>Да</strong> — agreeing / positive answer</p>
+                    <p class="translation">Согласие / положительный ответ</p>
                 </div>
                 <div class="vocab-card">
                     <h5>No</h5>
                     <p class="transcription">/noʊ/</p>
                     <p><strong>Нет</strong> — disagreeing / negative answer</p>
+                    <p class="translation">Несогласие / отрицательный ответ</p>
                 </div>
                 <div class="vocab-card">
                     <h5>I am from…</h5>
                     <p class="transcription">/aɪ æm frɒm/</p>
                     <p><strong>Я из…</strong> — saying where you're from</p>
+                    <p class="translation">Говорим, откуда ты</p>
                 </div>
                 <div class="vocab-card">
                     <h5>I am a…</h5>
                     <p class="transcription">/aɪ æm ə/</p>
                     <p><strong>Я (профессия)…</strong> — saying your job</p>
+                    <p class="translation">Говорим, кем работаешь</p>
                 </div>
             </div>
 
             <div class="homework-box" style="background: #e8f4fd;">
-                <h4>🎯 Practice: Match the word with its meaning</h4>
+                <h4>🎯 Practice: Match the word with its meaning <span class="translation">Практика: соедини слово с его значением.</span></h4>
                 <div style="color: #555; margin: 15px 0; line-height: 2.2;">
                     1. Hello — <select class="answer-select" data-correct="привет">
                         <option value="">...</option>
@@ -481,7 +512,7 @@
                         <option value="я (профессия)…">я (профессия)…</option>
                     </select><br>
                 </div>
-                <button class="btn" onclick="checkVocabMatch()">Check</button>
+                <button class="btn" onclick="checkVocabMatch()">Check / Проверить</button>
                 <div class="feedback" id="vocab-feedback"></div>
             </div>
         </div>
@@ -490,12 +521,13 @@
         <div class="section" id="grammar">
             <div class="section-header">
                 <span class="section-icon">📚</span>
-                <h2 class="section-title">Grammar: I am, You are, He is…</h2>
+                <h2 class="section-title">Grammar: I am, You are, He is… <span class="translation">Грамматика: я есть, ты есть, он есть</span></h2>
                 <span class="section-time">⏱ 10 min</span>
             </div>
 
             <div class="instruction">
                 The verb <strong>"to be"</strong> (am / is / are) is the most important verb in English. You use it every day to describe yourself and others.
+                <div class="translation">Глагол <strong>"to be"</strong> (am / is / are) — самый важный глагол в английском. Ты используешь его каждый день, чтобы описать себя и других.</div>
             </div>
 
             <div class="grammar-box">
@@ -510,7 +542,7 @@
             </div>
 
             <div class="grammar-box">
-                <h3>Verb "to be" — Present Tense</h3>
+                <h3>Verb "to be" — Present Tense <span class="translation">Глагол «быть» — настоящее время</span></h3>
                 <div class="table-wrap">
                 <table class="grammar-table">
                     <thead>
@@ -530,25 +562,31 @@
             </div>
 
             <div class="grammar-box">
-                <h3>📎 Short Forms (Contractions)</h3>
-                <p style="color:#555; margin-bottom:12px;">In spoken English, we usually use short forms:</p>
+                <h3>📎 Short Forms (Contractions) <span class="translation">Краткие формы (сокращения)</span></h3>
+                <p style="color:#555; margin-bottom:12px;">In spoken English, we usually use short forms:
+                    <span class="translation">В разговорной речи мы обычно используем краткие формы:</span></p>
                 <div class="example">I am → <strong>I'm</strong> &nbsp;|&nbsp; You are → <strong>You're</strong> &nbsp;|&nbsp; He is → <strong>He's</strong></div>
                 <div class="example">She is → <strong>She's</strong> &nbsp;|&nbsp; It is → <strong>It's</strong> &nbsp;|&nbsp; We are → <strong>We're</strong> &nbsp;|&nbsp; They are → <strong>They're</strong></div>
             </div>
 
             <div class="grammar-box">
-                <h3>❓ Questions with "to be"</h3>
-                <p style="color:#555; margin-bottom:12px;">To make a question, put the verb BEFORE the subject:</p>
-                <div class="example">❓ <strong>Are</strong> you a teacher? — ✅ Yes, I am. / ❌ No, I'm not.</div>
-                <div class="example">❓ <strong>Is</strong> she from Bali? — ✅ Yes, she is. / ❌ No, she isn't.</div>
-                <div class="example">❓ <strong>Is</strong> he your friend? — ✅ Yes, he is. / ❌ No, he isn't.</div>
-                <div class="example">❓ <strong>Are</strong> they students? — ✅ Yes, they are. / ❌ No, they aren't.</div>
+                <h3>❓ Questions with "to be" <span class="translation">Вопросы с глаголом «быть»</span></h3>
+                <p style="color:#555; margin-bottom:12px;">To make a question, put the verb BEFORE the subject:
+                    <span class="translation">Чтобы задать вопрос, поставь глагол ПЕРЕД подлежащим:</span></p>
+                <div class="example">❓ <strong>Are</strong> you a teacher? — ✅ Yes, I am. / ❌ No, I'm not.
+                    <div class="translation">Ты учитель? — Да. / Нет.</div></div>
+                <div class="example">❓ <strong>Is</strong> she from Bali? — ✅ Yes, she is. / ❌ No, she isn't.
+                    <div class="translation">Она из Бали? — Да. / Нет.</div></div>
+                <div class="example">❓ <strong>Is</strong> he your friend? — ✅ Yes, he is. / ❌ No, he isn't.
+                    <div class="translation">Он твой друг? — Да. / Нет.</div></div>
+                <div class="example">❓ <strong>Are</strong> they students? — ✅ Yes, they are. / ❌ No, they aren't.
+                    <div class="translation">Они студенты? — Да. / Нет.</div></div>
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4>✏️ Exercise 1: Choose am / is / are</h4>
+                <h4>✏️ Exercise 1: Choose am / is / are <span class="translation">Выбери am / is / are</span></h4>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <p style="margin:0; white-space:nowrap;">1. I ___ a teacher.</p>
+                    <p style="margin:0; white-space:nowrap;">1. I ___ a teacher. <span class="translation">Я учитель.</span></p>
                     <div class="options">
                         <button class="option-btn">am</button>
                         <button class="option-btn">is</button>
@@ -556,7 +594,7 @@
                     </div>
                 </div>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <p style="margin:0; white-space:nowrap;">2. She ___ from Bali.</p>
+                    <p style="margin:0; white-space:nowrap;">2. She ___ from Bali. <span class="translation">Она из Бали.</span></p>
                     <div class="options">
                         <button class="option-btn">am</button>
                         <button class="option-btn">is</button>
@@ -564,7 +602,7 @@
                     </div>
                 </div>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <p style="margin:0; white-space:nowrap;">3. We ___ students.</p>
+                    <p style="margin:0; white-space:nowrap;">3. We ___ students. <span class="translation">Мы студенты.</span></p>
                     <div class="options">
                         <button class="option-btn">am</button>
                         <button class="option-btn">is</button>
@@ -572,7 +610,7 @@
                     </div>
                 </div>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <p style="margin:0; white-space:nowrap;">4. He ___ my friend.</p>
+                    <p style="margin:0; white-space:nowrap;">4. He ___ my friend. <span class="translation">Он мой друг.</span></p>
                     <div class="options">
                         <button class="option-btn">am</button>
                         <button class="option-btn">is</button>
@@ -580,40 +618,40 @@
                     </div>
                 </div>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                    <p style="margin:0; white-space:nowrap;">5. They ___ from Jakarta.</p>
+                    <p style="margin:0; white-space:nowrap;">5. They ___ from Jakarta. <span class="translation">Они из Джакарты.</span></p>
                     <div class="options">
                         <button class="option-btn">am</button>
                         <button class="option-btn">is</button>
                         <button class="option-btn">are</button>
                     </div>
                 </div>
-                <button class="btn" onclick="checkGrammar1()">Check Answers</button>
+                <button class="btn" onclick="checkGrammar1()">Check Answers / Проверить</button>
                 <div class="feedback" id="grammar1-feedback"></div>
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4>✏️ Exercise 2: Fill in the blanks</h4>
+                <h4>✏️ Exercise 2: Fill in the blanks <span class="translation">Заполни пропуски</span></h4>
                 <div class="question-box">
-                    <p>1. My name ___ Anna.</p>
+                    <p>1. My name ___ Anna. <span class="translation">Меня зовут Анна.</span></p>
                     <input type="text" class="text-answer" data-correct="is" placeholder="am / is / are" style="max-width: 150px;">
                 </div>
                 <div class="question-box">
-                    <p>2. I ___ fine today.</p>
+                    <p>2. I ___ fine today. <span class="translation">У меня всё хорошо сегодня.</span></p>
                     <input type="text" class="text-answer" data-correct="am" placeholder="am / is / are" style="max-width: 150px;">
                 </div>
                 <div class="question-box">
-                    <p>3. ___ you a teacher?</p>
+                    <p>3. ___ you a teacher? <span class="translation">Ты учитель?</span></p>
                     <input type="text" class="text-answer" data-correct="Are" placeholder="Am / Is / Are" style="max-width: 150px;">
                 </div>
                 <div class="question-box">
-                    <p>4. He ___ not a student.</p>
+                    <p>4. He ___ not a student. <span class="translation">Он не студент.</span></p>
                     <input type="text" class="text-answer" data-correct="is" placeholder="am / is / are" style="max-width: 150px;">
                 </div>
                 <div class="question-box">
-                    <p>5. We ___ happy.</p>
+                    <p>5. We ___ happy. <span class="translation">Мы счастливы.</span></p>
                     <input type="text" class="text-answer" data-correct="are" placeholder="am / is / are" style="max-width: 150px;">
                 </div>
-                <button class="btn" onclick="checkGrammar2()">Check Answers</button>
+                <button class="btn" onclick="checkGrammar2()">Check Answers / Проверить</button>
                 <div class="feedback" id="grammar2-feedback"></div>
             </div>
         </div>
@@ -622,62 +660,63 @@
         <div class="section" id="listening">
             <div class="section-header">
                 <span class="section-icon">🎧</span>
-                <h2 class="section-title">Listening: Everyday Dialogues</h2>
+                <h2 class="section-title">Listening: Everyday Dialogues <span class="translation">Аудирование: повседневные диалоги</span></h2>
                 <span class="section-time">⏱ 7 min</span>
             </div>
 
             <div class="instruction">
                 Listen to the dialogues. Try to understand the main idea first, then listen for details.
+                <div class="translation">Послушай диалоги. Сначала постарайся понять главную мысль, затем слушай детали.</div>
             </div>
 
-            <button class="audio-play-btn" onclick="playDialogue1()">🔊 Dialogue 1</button>
-            <button class="audio-play-btn" onclick="playDialogue2()">🔊 Dialogue 2</button>
+            <button class="audio-play-btn" onclick="playDialogue1()">🔊 Dialogue 1 / Диалог 1</button>
+            <button class="audio-play-btn" onclick="playDialogue2()">🔊 Dialogue 2 / Диалог 2</button>
 
             <div class="announcement-box">
-                <span class="label">💬 Dialogue 1 — Meeting Someone</span>
-                <p><strong>A:</strong> Hello! My name is John. What's your name?</p>
-                <p><strong>B:</strong> Hi! I'm Maria. Nice to meet you!</p>
-                <p><strong>A:</strong> Nice to meet you too! Where are you from?</p>
-                <p><strong>B:</strong> I'm from Bali. And you?</p>
-                <p><strong>A:</strong> I'm from Jakarta. I'm a driver.</p>
-                <p><strong>B:</strong> I'm a teacher. Nice to meet you, John!</p>
-                <p><strong>A:</strong> Goodbye, Maria!</p>
-                <p><strong>B:</strong> Bye!</p>
+                <span class="label">💬 Dialogue 1 — Meeting Someone <span class="translation">Знакомство</span></span>
+                <p><strong>A:</strong> Hello! My name is John. What's your name?<br><span class="translation">Привет! Меня зовут Джон. Как тебя зовут?</span></p>
+                <p><strong>B:</strong> Hi! I'm Maria. Nice to meet you!<br><span class="translation">Привет! Я Мария. Приятно познакомиться!</span></p>
+                <p><strong>A:</strong> Nice to meet you too! Where are you from?<br><span class="translation">Мне тоже приятно! Откуда ты?</span></p>
+                <p><strong>B:</strong> I'm from Bali. And you?<br><span class="translation">Я из Бали. А ты?</span></p>
+                <p><strong>A:</strong> I'm from Jakarta. I'm a driver.<br><span class="translation">Я из Джакарты. Я водитель.</span></p>
+                <p><strong>B:</strong> I'm a teacher. Nice to meet you, John!<br><span class="translation">Я учитель. Приятно познакомиться, Джон!</span></p>
+                <p><strong>A:</strong> Goodbye, Maria!<br><span class="translation">До свидания, Мария!</span></p>
+                <p><strong>B:</strong> Bye!<br><span class="translation">Пока!</span></p>
             </div>
 
             <div class="announcement-box">
-                <span class="label">💬 Dialogue 2 — Morning Greeting</span>
-                <p><strong>A:</strong> Good morning! How are you?</p>
-                <p><strong>B:</strong> I'm fine, thank you! And you?</p>
-                <p><strong>A:</strong> I'm good, thanks! Are you a student?</p>
-                <p><strong>B:</strong> Yes, I am. I'm a student at the university.</p>
-                <p><strong>A:</strong> That's great! See you later!</p>
-                <p><strong>B:</strong> See you! Goodbye!</p>
+                <span class="label">💬 Dialogue 2 — Morning Greeting <span class="translation">Утреннее приветствие</span></span>
+                <p><strong>A:</strong> Good morning! How are you?<br><span class="translation">Доброе утро! Как дела?</span></p>
+                <p><strong>B:</strong> I'm fine, thank you! And you?<br><span class="translation">У меня всё хорошо, спасибо! А у тебя?</span></p>
+                <p><strong>A:</strong> I'm good, thanks! Are you a student?<br><span class="translation">У меня всё хорошо, спасибо! Ты студент?</span></p>
+                <p><strong>B:</strong> Yes, I am. I'm a student at the university.<br><span class="translation">Да. Я студент в университете.</span></p>
+                <p><strong>A:</strong> That's great! See you later!<br><span class="translation">Отлично! Увидимся позже!</span></p>
+                <p><strong>B:</strong> See you! Goodbye!<br><span class="translation">Увидимся! До свидания!</span></p>
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4>❓ Comprehension Questions</h4>
+                <h4>❓ Comprehension Questions <span class="translation">Вопросы на понимание</span></h4>
                 <div class="question-box">
-                    <p>1. What is the man's name in Dialogue 1?</p>
+                    <p>1. What is the man's name in Dialogue 1? <span class="translation">Как зовут мужчину в диалоге 1?</span></p>
                     <input type="text" class="text-answer" data-correct="John" placeholder="Type the name...">
                 </div>
                 <div class="question-box">
-                    <p>2. Where is Maria from?</p>
+                    <p>2. Where is Maria from? <span class="translation">Откуда Мария?</span></p>
                     <input type="text" class="text-answer" data-correct="Bali" placeholder="Type the place...">
                 </div>
                 <div class="question-box">
-                    <p>3. What is Maria's job?</p>
+                    <p>3. What is Maria's job? <span class="translation">Кем работает Мария?</span></p>
                     <input type="text" class="text-answer" data-correct="teacher" placeholder="Type the job...">
                 </div>
                 <div class="question-box">
-                    <p>4. In Dialogue 2, is the woman a student?</p>
+                    <p>4. In Dialogue 2, is the woman a student? <span class="translation">В диалоге 2 женщина — студентка?</span></p>
                     <input type="text" class="text-answer" data-correct="yes" placeholder="yes / no">
                 </div>
                 <div class="question-box">
-                    <p>5. How does John say goodbye?</p>
+                    <p>5. How does John say goodbye? <span class="translation">Как Джон попрощался?</span></p>
                     <input type="text" class="text-answer" data-correct="goodbye" placeholder="Type what he says...">
                 </div>
-                <button class="btn" onclick="checkComprehension()">Check Answers</button>
+                <button class="btn" onclick="checkComprehension()">Check Answers / Проверить</button>
                 <div class="feedback" id="comprehension-feedback"></div>
             </div>
         </div>
@@ -686,49 +725,51 @@
         <div class="section" id="writing">
             <div class="section-header">
                 <span class="section-icon">✍️</span>
-                <h2 class="section-title">Writing: About Me</h2>
+                <h2 class="section-title">Writing: About Me <span class="translation">Письмо: о себе</span></h2>
                 <span class="section-time">⏱ 10 min</span>
             </div>
 
             <div class="instruction">
                 Write about yourself. Use the sentences below and fill in the blanks with your own information.
+                <div class="translation">Напиши о себе. Используй предложения ниже и заполни пропуски своей информацией.</div>
             </div>
 
             <div class="grammar-box">
-                <h3>📝 My Self-Introduction</h3>
-                <div class="example">1. My name <strong>is</strong> ________.</div>
-                <div class="example">2. I <strong>am</strong> from ________.</div>
-                <div class="example">3. I <strong>am</strong> a ________. (job)</div>
-                <div class="example">4. I <strong>am</strong> ________ years old.</div>
-                <div class="example">5. I <strong>am</strong> fine / good / okay today.</div>
+                <h3>📝 My Self-Introduction <span class="translation">Моё представление о себе</span></h3>
+                <div class="example">1. My name <strong>is</strong> ________. <span class="translation">Меня зовут ______.</span></div>
+                <div class="example">2. I <strong>am</strong> from ________. <span class="translation">Я из ______.</span></div>
+                <div class="example">3. I <strong>am</strong> a ________. (job) <span class="translation">Я ______ (профессия).</span></div>
+                <div class="example">4. I <strong>am</strong> ________ years old. <span class="translation">Мне ______ лет.</span></div>
+                <div class="example">5. I <strong>am</strong> fine / good / okay today. <span class="translation">У меня всё хорошо сегодня.</span></div>
             </div>
 
-            <h3>💡 Model Answer</h3>
-            <div class="example-answer">"Hello! My name <strong>is</strong> Anna. I <strong>am</strong> from Bali. I <strong>am</strong> a teacher. I <strong>am</strong> 35 years old. I <strong>am</strong> fine today!"</div>
+            <h3>💡 Model Answer <span class="translation">Образец ответа</span></h3>
+            <div class="example-answer">"Hello! My name <strong>is</strong> Anna. I <strong>am</strong> from Bali. I <strong>am</strong> a teacher. I <strong>am</strong> 35 years old. I <strong>am</strong> fine today!"
+                <div class="translation">«Привет! Меня зовут Анна. Я из Бали. Я учитель. Мне 35 лет. У меня всё хорошо сегодня!»</div></div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4>✏️ Exercise: Complete the sentences about yourself</h4>
+                <h4>✏️ Exercise: Complete the sentences about yourself <span class="translation">Дополни предложения о себе</span></h4>
                 <div class="question-box">
-                    <p>1. Hello! My name is <input type="text" class="text-answer" data-correct="my name" placeholder="(your name)" style="max-width: 200px;">.</p>
+                    <p>1. Hello! My name is <input type="text" class="text-answer" data-correct="my name" placeholder="(your name)" style="max-width: 200px;">. <span class="translation">Привет! Меня зовут ______.</span></p>
                 </div>
                 <div class="question-box">
-                    <p>2. I am from <input type="text" class="text-answer" data-correct="my city" placeholder="(your city/country)" style="max-width: 200px;">.</p>
+                    <p>2. I am from <input type="text" class="text-answer" data-correct="my city" placeholder="(your city/country)" style="max-width: 200px;">. <span class="translation">Я из ______.</span></p>
                 </div>
                 <div class="question-box">
-                    <p>3. I am a <input type="text" class="text-answer" data-correct="my job" placeholder="(your job)" style="max-width: 200px;">.</p>
+                    <p>3. I am a <input type="text" class="text-answer" data-correct="my job" placeholder="(your job)" style="max-width: 200px;">. <span class="translation">Я ______ (профессия).</span></p>
                 </div>
                 <div class="question-box">
-                    <p>4. I am <input type="text" class="text-answer" data-correct="my age" placeholder="(your age)" style="max-width: 200px;"> years old.</p>
+                    <p>4. I am <input type="text" class="text-answer" data-correct="my age" placeholder="(your age)" style="max-width: 200px;"> years old. <span class="translation">Мне ______ лет.</span></p>
                 </div>
                 <div class="question-box">
-                    <p>5. Today I am <input type="text" class="text-answer" data-correct="fine" placeholder="fine / good / okay" style="max-width: 200px;">.</p>
+                    <p>5. Today I am <input type="text" class="text-answer" data-correct="fine" placeholder="fine / good / okay" style="max-width: 200px;">. <span class="translation">Сегодня я в порядке.</span></p>
                 </div>
                 <div class="tips-box">
-                    <h4>💡 Writing Tips</h4>
+                    <h4>💡 Writing Tips <span class="translation">Советы по письму</span></h4>
                     <ul>
-                        <li>Keep sentences short — one idea per sentence</li>
-                        <li>Use "I am" (I'm) for all your information</li>
-                        <li>Read your text out loud after writing</li>
+                        <li>Keep sentences short — one idea per sentence <span class="translation">Держи предложения короткими — одна мысль в предложении</span></li>
+                        <li>Use "I am" (I'm) for all your information <span class="translation">Используй «I am» (I'm) для всей информации о себе</span></li>
+                        <li>Read your text out loud after writing <span class="translation">Прочитай свой текст вслух после написания</span></li>
                     </ul>
                 </div>
             </div>
@@ -738,22 +779,23 @@
         <div class="section" id="memory">
             <div class="section-header">
                 <span class="section-icon">🧠</span>
-                <h2 class="section-title">Memory Game: Words &amp; Pictures</h2>
+                <h2 class="section-title">Memory Game: Words &amp; Pictures <span class="translation">Игра «Найди пары»</span></h2>
                 <span class="section-time">⏱ 5 min</span>
             </div>
 
             <div class="instruction">
                 Flip two cards: one word and one picture. If they match, they stay open. Find all 8 pairs!
+                <div class="translation">Переверни две карточки: слово и картинка. Если они совпадают, они остаются открытыми. Найди все 8 пар!</div>
             </div>
 
             <div class="memory-stats">
-                <span>Moves: <strong id="memory-moves">0</strong></span>
-                <span>Time: <strong id="memory-time">0:00</strong></span>
+                <span>Moves <span class="translation">(Ходы)</span>: <strong id="memory-moves">0</strong></span>
+                <span>Time <span class="translation">(Время)</span>: <strong id="memory-time">0:00</strong></span>
             </div>
-            <div class="game-hint" id="memory-status">Find all pairs to win!</div>
+            <div class="game-hint" id="memory-status">Find all pairs to win! <span class="translation">Найди все пары, чтобы выиграть!</span></div>
             <div class="memory-grid" id="memory-board"></div>
             <div style="text-align:center; margin-top:8px;">
-                <button class="btn" onclick="buildMemoryGame()">🔄 New Game</button>
+                <button class="btn" onclick="buildMemoryGame()">🔄 New Game / Новая игра</button>
             </div>
         </div>
 
@@ -761,56 +803,61 @@
         <div class="section" id="homework">
             <div class="section-header">
                 <span class="section-icon">📝</span>
-                <h2 class="section-title">Homework (15–20 min)</h2>
+                <h2 class="section-title">Homework (15–20 min) <span class="translation">Домашнее задание (15–20 минут)</span></h2>
                 <span class="section-time">⏱ After lesson</span>
             </div>
 
             <div class="homework-box">
-                <h4>✅ Tasks to Complete</h4>
+                <h4>✅ Tasks to Complete <span class="translation">Задания на дом</span></h4>
                 <div class="homework-item">
                     <input type="checkbox">
                     <div>
-                        <strong>1. 🗣️ Practice saying</strong>
+                        <strong>1. 🗣️ Practice saying <span class="translation">Потренируйся говорить</span></strong>
                         <p>Say "Hello! My name is… I am from… I am a…" 5 times out loud. Practice the pronunciation.</p>
+                        <p class="translation">Произнеси «Hello! My name is… I am from… I am a…» 5 раз вслух. Потренируй произношение.</p>
                     </div>
                 </div>
                 <div class="homework-item">
                     <input type="checkbox">
                     <div>
-                        <strong>2. ✍️ Write about yourself</strong>
+                        <strong>2. ✍️ Write about yourself <span class="translation">Напиши о себе</span></strong>
                         <p>Write 5 sentences about yourself: name, city, job, age, how you feel today. Use "I am…"</p>
+                        <p class="translation">Напиши 5 предложений о себе: имя, город, профессия, возраст, настроение сегодня. Используй «I am…».</p>
                     </div>
                 </div>
                 <div class="homework-item">
                     <input type="checkbox">
                     <div>
-                        <strong>3. 🎤 Record yourself</strong>
+                        <strong>3. 🎤 Record yourself <span class="translation">Запиши себя</span></strong>
                         <p>Record your self-introduction (5 sentences). Listen to it and try to improve pronunciation.</p>
+                        <p class="translation">Запиши своё представление о себе (5 предложений). Послушай и постарайся улучшить произношение.</p>
                     </div>
                 </div>
                 <div class="homework-item">
                     <input type="checkbox">
                     <div>
-                        <strong>4. 🧠 Vocabulary</strong>
+                        <strong>4. 🧠 Vocabulary <span class="translation">Словарный запас</span></strong>
                         <p>Review all vocabulary cards. Try to say each word from the Russian translation.</p>
+                        <p class="translation">Повтори все карточки со словами. Попробуй назвать каждое слово по русскому переводу.</p>
                     </div>
                 </div>
                 <div class="homework-item">
                     <input type="checkbox">
                     <div>
-                        <strong>5. 🎬 Watch at home</strong>
+                        <strong>5. 🎬 Watch at home <span class="translation">Посмотри дома</span></strong>
                         <p>Search YouTube: "English greetings for beginners" — watch one video (5 min) and write down 3 new words you hear.</p>
+                        <p class="translation">Найди на YouTube «English greetings for beginners» — посмотри одно видео (5 мин) и запиши 3 новых слова, которые услышишь.</p>
                     </div>
                 </div>
             </div>
 
             <div class="tips-box">
-                <h4>📌 How to Check Homework Next Lesson</h4>
+                <h4>📌 How to Check Homework Next Lesson <span class="translation">Как проверить домашнее задание на следующем уроке</span></h4>
                 <ul>
-                    <li>Student reads their self-introduction out loud</li>
-                    <li>Teacher helps with pronunciation of difficult words</li>
-                    <li>Student explains 3 new words from the video</li>
-                    <li>Quick vocabulary quiz: teacher says Russian, student says English</li>
+                    <li>Student reads their self-introduction out loud <span class="translation">Ученик читает вслух своё представление о себе</span></li>
+                    <li>Teacher helps with pronunciation of difficult words <span class="translation">Учитель помогает с произношением сложных слов</span></li>
+                    <li>Student explains 3 new words from the video <span class="translation">Ученик объясняет 3 новых слова из видео</span></li>
+                    <li>Quick vocabulary quiz: teacher says Russian, student says English <span class="translation">Быстрый словарный опрос: учитель говорит по-русски, ученик — по-английски</span></li>
                 </ul>
             </div>
         </div>
@@ -1003,7 +1050,7 @@
             const fb = document.getElementById('vocab-feedback');
             fb.classList.add('show');
             fb.className = `feedback show ${correct === selects.length ? 'correct' : 'incorrect'}`;
-            fb.innerHTML = `<h4>${correct === selects.length ? '🎉 Excellent!' : '📝 Results: ' + correct + '/' + selects.length}</h4>`;
+            fb.innerHTML = `<h4>${correct === selects.length ? '🎉 Excellent! / Отлично!' : '📝 Результат: ' + correct + '/' + selects.length}</h4>`;
         }
 
         // ===== GRAMMAR EXERCISES =====
@@ -1024,8 +1071,8 @@
             const fb = document.getElementById('grammar1-feedback');
             fb.classList.add('show');
             fb.className = `feedback show ${correct === 5 ? 'correct' : 'incorrect'}`;
-            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Perfect!' : '📝 Results: ' + correct + '/5'}</h4>` +
-                `<p>${correct === 5 ? 'You understand am/is/are perfectly!' : 'Correct: 1. am 2. is 3. are 4. is 5. are'}</p>`;
+            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Perfect! / Отлично!' : '📝 Результат: ' + correct + '/5'}</h4>` +
+                `<p>${correct === 5 ? 'You understand am/is/are perfectly! / Ты отлично разобрался в am/is/are!' : 'Correct / Правильно: 1. am 2. is 3. are 4. is 5. are'}</p>`;
         }
 
         function checkGrammar2() {
@@ -1047,7 +1094,7 @@
             const fb = document.getElementById('grammar2-feedback');
             fb.classList.add('show');
             fb.className = `feedback show ${correct === 5 ? 'correct' : 'incorrect'}`;
-            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Excellent!' : '📝 Results: ' + correct + '/5'}</h4>`;
+            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Excellent! / Отлично!' : '📝 Результат: ' + correct + '/5'}</h4>`;
         }
 
         // ===== LISTENING =====
@@ -1109,8 +1156,8 @@
             const fb = document.getElementById('comprehension-feedback');
             fb.classList.add('show');
             fb.className = `feedback show ${correct >= 4 ? 'correct' : 'incorrect'}`;
-            fb.innerHTML = `<h4>${correct >= 4 ? '🎧 Good listening!' : '📝 Results: ' + correct + '/5'}</h4>` +
-                `<p>${correct >= 4 ? 'You understood the dialogues well!' : 'Listen again and try to catch the details.'}</p>`;
+            fb.innerHTML = `<h4>${correct >= 4 ? '🎧 Good listening! / Отличное аудирование!' : '📝 Результат: ' + correct + '/5'}</h4>` +
+                `<p>${correct >= 4 ? 'You understood the dialogues well! / Ты хорошо понял диалоги!' : 'Listen again and try to catch the details. / Послушай ещё раз и постарайся уловить детали.'}</p>`;
         }
 
         // ===== OPTION BUTTONS =====
@@ -1168,7 +1215,7 @@
             clearInterval(memTimer);
             memTimer = setInterval(() => { memSeconds++; updateMemoryStats(); }, 1000);
             const s = document.getElementById('memory-status');
-            s.textContent = 'Match words and pictures!'; s.style.color = '#1a2980';
+            s.textContent = 'Match words and pictures! / Соедини слова и картинки!'; s.style.color = '#1a2980';
             updateMemoryStats();
         }
 
@@ -1184,7 +1231,7 @@
                 if (memMatched === memTotal) {
                     clearInterval(memTimer);
                     const s = document.getElementById('memory-status');
-                    s.textContent = `🎉 You won! ${memMoves} moves, ${Math.floor(memSeconds / 60)}:${(memSeconds % 60).toString().padStart(2, '0')}`;
+                    s.textContent = `🎉 You won! / Ты выиграл! ${memMoves} moves / ходов, ${Math.floor(memSeconds / 60)}:${(memSeconds % 60).toString().padStart(2, '0')}`;
                     s.style.color = '#27ae60';
                 }
             } else {
