@@ -23,7 +23,7 @@
         }
         header h1 {
             font-size: 2.5em;
-            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -35,7 +35,7 @@
             margin-top: 20px; flex-wrap: wrap;
         }
         .lesson-info span {
-            background: #fff0f3; color: #e94560;
+            background: #e8f4fd; color: #0f3460;
             padding: 8px 16px; border-radius: 20px;
             font-size: 0.9em; font-weight: 500;
         }
@@ -50,7 +50,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         .tab:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-        .tab.active { background: linear-gradient(135deg, #0f3460 0%, #e94560 100%); color: white; }
+        .tab.active { background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%); color: white; }
         .section {
             background: white; border-radius: 20px; padding: 35px;
             margin-bottom: 25px; display: none;
@@ -69,10 +69,10 @@
         h4 { color: #0f3460; margin-bottom: 12px; }
         .game-hint { text-align: center; color: #0f3460; font-weight: 500; }
         button:focus-visible, select:focus-visible, .text-answer:focus-visible {
-            outline: 3px solid #e94560; outline-offset: 2px;
+            outline: 3px solid #5b9bd5; outline-offset: 2px;
         }
         .instruction {
-            background: #fff0f3; border-left: 4px solid #e94560;
+            background: #f0f7ff; border-left: 4px solid #5b9bd5;
             padding: 14px 18px; border-radius: 0 10px 10px 0;
             margin-bottom: 20px; color: #555; line-height: 1.6;
         }
@@ -88,10 +88,10 @@
         .vocab-card.clickable { cursor: pointer; }
         .vocab-card h5 { color: #0f3460; margin-bottom: 5px; font-size: 1.1em; display: flex; align-items: center; gap: 8px; }
         .vocab-card p { color: #666; font-size: 0.9em; }
-        .vocab-card .transcription { color: #e94560; font-size: 0.85em; font-style: italic; }
+        .vocab-card .transcription { color: #5b9bd5; font-size: 0.85em; font-style: italic; }
         .vocab-emoji { font-size: 34px; margin-bottom: 8px; }
         .vocab-speaker {
-            background: #e94560; color: #fff; border: none; border-radius: 50%;
+            background: #5b9bd5; color: #fff; border: none; border-radius: 50%;
             width: 28px; height: 28px; font-size: 14px; line-height: 1;
             cursor: pointer; flex-shrink: 0;
             display: inline-flex; align-items: center; justify-content: center;
@@ -120,7 +120,7 @@
         }
         .grammar-box h3 { color: #0f3460; margin-bottom: 12px; font-size: 1.15em; }
         .grammar-box .example {
-            background: #fff; border-left: 3px solid #e94560;
+            background: #fff; border-left: 3px solid #5b9bd5;
             padding: 10px 14px; margin-bottom: 8px; border-radius: 0 8px 8px 0;
             font-size: 0.95em; line-height: 1.5;
         }
@@ -144,7 +144,7 @@
             border-radius: 10px; cursor: pointer; font-size: 0.95em;
             transition: all 0.2s;
         }
-        .option-btn:hover { border-color: #e94560; background: #fff0f3; }
+        .option-btn:hover { border-color: #5b9bd5; background: #f0f7ff; }
         .option-btn.selected { border-color: #0f3460; background: #0f3460; color: white; }
         .option-btn.correct { border-color: #27ae60; background: #d4edda; color: #155724; }
         .option-btn.incorrect { border-color: #e74c3c; background: #f8d7da; color: #721c24; }
@@ -154,9 +154,9 @@
             width: 100%; padding: 10px 14px; border: 2px solid #ddd;
             border-radius: 10px; font-size: 1em; transition: border-color 0.2s;
         }
-        .text-answer:focus { border-color: #e94560; outline: none; }
+        .text-answer:focus { border-color: #5b9bd5; outline: none; }
         .btn {
-            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
             color: white; border: none; padding: 12px 28px; border-radius: 12px;
             font-size: 1em; font-weight: 600; cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -198,10 +198,10 @@
         }
         .homework-item input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; }
         .tips-box {
-            background: #fff8e1; border-radius: 14px; padding: 20px;
-            border: 1px solid #ffe082; margin-bottom: 16px;
+            background: #f0f7ff; border-radius: 14px; padding: 20px;
+            border: 1px solid #b3d9f2; margin-bottom: 16px;
         }
-        .tips-box h4 { color: #f57f17; margin-bottom: 10px; }
+        .tips-box h4 { color: #0f3460; margin-bottom: 10px; }
         .tips-box ul { margin-left: 20px; color: #555; line-height: 1.8; }
         .memory-grid {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
@@ -219,7 +219,7 @@
             display: flex; align-items: center; justify-content: center;
         }
         .memory-card .back {
-            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            background: linear-gradient(135deg, #0f3460 0%, #5b9bd5 100%);
             color: #fff; font-size: 26px; font-weight: 700;
         }
         .memory-card .front {
@@ -247,7 +247,7 @@
         footer p { margin-bottom: 5px; }
         .announcement-box {
             background: #f8f9fa; border-radius: 14px; padding: 18px;
-            margin-bottom: 14px; border-left: 4px solid #e94560;
+            margin-bottom: 14px; border-left: 4px solid #5b9bd5;
         }
         .announcement-box .label { font-weight: 600; color: #0f3460; display: block; margin-bottom: 8px; }
         .announcement-box p { line-height: 1.6; font-size: 0.95em; }
@@ -255,7 +255,7 @@
             background: #0f3460; color: #fff; border: none; padding: 12px 24px;
             border-radius: 12px; font-size: 1em; cursor: pointer; margin-bottom: 20px;
         }
-        .audio-play-btn:hover { background: #e94560; }
+        .audio-play-btn:hover { background: #1a5276; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
@@ -329,7 +329,7 @@
                 <span class="section-time">⏱ 8 min</span>
             </div>
 
-            <div class="tips-box" style="background:#fff0f3; border-color:#e94560;">
+            <div class="tips-box" style="background:#f0f7ff; border-color:#5b9bd5;">
                 <h4>🎤 How to Use</h4>
                 <p>Tap <strong>🔊</strong> to hear the word. Tap <strong>🎤 Record</strong> to say it yourself. Then tap <strong>▶️</strong> to compare, or <strong>🗑 Delete</strong> and try again.</p>
             </div>
