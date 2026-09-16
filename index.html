@@ -302,6 +302,8 @@
             transition: background 0.2s, transform 0.2s;
         }
         .dict-audio:hover { background: #1a2980; transform: scale(1.05); }
+        .clear-btn { background: #fff; border: 2px solid #e74c3c; color: #e74c3c; }
+        .clear-btn:hover { background: #e74c3c; color: #fff; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
@@ -886,6 +888,7 @@
                 <div style="text-align:center;">
                     <button class="btn" onclick="playDictation()">▶️ Play all / Проиграть все</button>
                     <button class="btn" onclick="checkDictation()">Check / Проверить</button>
+                    <button class="btn clear-btn" onclick="clearDictation()">🗑 Clear / Очистить</button>
                 </div>
                 <div class="feedback" id="dictation-feedback"></div>
             </div>
@@ -1404,6 +1407,17 @@
             fb.className = `feedback show ${correct === total ? 'correct' : 'incorrect'}`;
             fb.innerHTML = `<h4>${correct === total ? '🎉 Perfect spelling! / Отлично!' : '📝 Результат: ' + correct + '/' + total}</h4>` +
                 `<p>${correct === total ? 'You spelled all the words correctly! / Ты правильно написал(а) все слова!' : 'Listen again: press 🔊 and try once more. / Послушай ещё раз: нажми 🔊 и попробуй снова.'}</p>`;
+        }
+
+        function clearDictation() {
+            document.querySelectorAll('#listening .dict-input').forEach(input => {
+                input.value = '';
+                input.style.borderColor = '';
+                input.style.backgroundColor = '';
+            });
+            const fb = document.getElementById('dictation-feedback');
+            fb.classList.remove('show');
+            fb.className = 'feedback';
         }
 
         // ===== OPTION BUTTONS =====
