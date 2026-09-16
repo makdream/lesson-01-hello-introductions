@@ -273,6 +273,12 @@
             margin-top: 20px; border: 1px solid #e0e7ff;
         }
         .video-suggestion h4 { color: #1a2980; margin-bottom: 8px; }
+        .video-wrap {
+            position: relative; width: 100%; max-width: 640px; margin: 14px auto 0;
+            aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .lesson-video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
         footer {
             text-align: center; color: rgba(255,255,255,0.7);
             font-size: 0.9em; background: rgba(0,0,0,0.15);
@@ -356,6 +362,20 @@
             </div>
 
             <div style="text-align:center; font-size:3em; margin:20px 0;">👋🌅☀️🌇😊</div>
+
+            <div class="video-suggestion">
+                <h4>▶️ Video: Greetings &amp; Introductions <span class="translation">Видео: приветствия и знакомство</span></h4>
+                <p style="color:#555;">Watch two people meeting for the first time. Notice how they greet, introduce themselves and ask about each other.
+                    <span class="translation">Посмотри, как двое знакомятся. Обрати внимание, как они здороваются, представляются и спрашивают друг о друге.</span></p>
+                <div class="video-wrap">
+                    <iframe class="lesson-video"
+                        src="https://www.youtube-nocookie.com/embed/f59Qen3NXJg"
+                        title="Greetings and Introductions for Beginners (A1-A2) - Basic English Conversation"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                </div>
+                <p style="color:#7b8894; font-size:0.85em; margin-top:12px; text-align:center;">Open directly: <a href="https://www.youtube.com/watch?v=f59Qen3NXJg" target="_blank" rel="noopener">youtube.com/watch?v=f59Qen3NXJg</a></p>
+            </div>
 
             <div class="question-box">
                 <p>1️⃣ Can you say "Hello" in English? <span class="translation">Можешь сказать «Привет» по-английски?</span></p>
