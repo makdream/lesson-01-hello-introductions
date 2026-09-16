@@ -65,6 +65,12 @@
         .section-header h2 { color: #0f3460; }
         .section-icon { font-size: 1.8em; margin-right: 12px; }
         .section-time { color: #999; font-size: 0.9em; background: #f5f5f5; padding: 4px 12px; border-radius: 12px; }
+        h3 { color: #0f3460; margin: 20px 0 10px; }
+        h4 { color: #0f3460; margin-bottom: 12px; }
+        .game-hint { text-align: center; color: #0f3460; font-weight: 500; }
+        button:focus-visible, select:focus-visible, .text-answer:focus-visible {
+            outline: 3px solid #e94560; outline-offset: 2px;
+        }
         .instruction {
             background: #fff0f3; border-left: 4px solid #e94560;
             padding: 14px 18px; border-radius: 0 10px 10px 0;
@@ -130,6 +136,8 @@
             padding: 10px 16px; border-bottom: 1px solid #eee;
         }
         .grammar-table tr:hover td { background: #f0f3ff; }
+        .table-wrap { overflow-x: auto; }
+        .table-wrap .grammar-table { min-width: 540px; }
         .options { display: flex; flex-wrap: wrap; gap: 10px; }
         .option-btn {
             background: white; border: 2px solid #ddd; padding: 10px 20px;
@@ -232,8 +240,9 @@
         }
         .video-suggestion h4 { color: #0f3460; margin-bottom: 8px; }
         footer {
-            text-align: center; padding: 30px 0; color: rgba(255,255,255,0.7);
-            font-size: 0.9em;
+            text-align: center; color: rgba(255,255,255,0.7);
+            font-size: 0.9em; background: rgba(0,0,0,0.15);
+            border-radius: 14px; padding: 20px; margin-top: 10px;
         }
         footer p { margin-bottom: 5px; }
         .announcement-box {
@@ -247,17 +256,18 @@
             border-radius: 12px; font-size: 1em; cursor: pointer; margin-bottom: 20px;
         }
         .audio-play-btn:hover { background: #e94560; }
-        footer { background: rgba(0,0,0,0.15); border-radius: 14px; padding: 20px; margin-top: 10px; }
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
+            header { padding: 28px 18px; }
             .section { padding: 25px; }
             .section-header { flex-wrap: wrap; }
             .section-time { margin-left: 0; }
             .options { flex-direction: column; }
             .option-btn { width: 100%; }
             .text-answer { max-width: 100%; }
-            .memory-grid { gap: 8px; }
+            .memory-grid { gap: 8px; grid-template-columns: repeat(2, 1fr); }
+            .vocab-grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
         }
     </style>
 </head>
@@ -306,7 +316,7 @@
                 <p>5️⃣ How are you today?</p>
             </div>
 
-            <h3 style="color: #0f3460; margin: 20px 0 10px;">💡 Model Introduction</h3>
+            <h3>💡 Model Introduction</h3>
             <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!"</div>
             <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!"</div>
         </div>
@@ -501,6 +511,7 @@
 
             <div class="grammar-box">
                 <h3>Verb "to be" — Present Tense</h3>
+                <div class="table-wrap">
                 <table class="grammar-table">
                     <thead>
                         <tr><th>Pronoun</th><th>to be</th><th>Example</th><th>Translation</th></tr>
@@ -515,6 +526,7 @@
                         <tr><td><strong>They</strong></td><td>are</td><td>They <strong>are</strong> from Jakarta.</td><td>Они из Джакарты.</td></tr>
                     </tbody>
                 </table>
+            </div>
             </div>
 
             <div class="grammar-box">
@@ -534,7 +546,7 @@
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4 style="color:#0f3460;">✏️ Exercise 1: Choose am / is / are</h4>
+                <h4>✏️ Exercise 1: Choose am / is / are</h4>
                 <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
                     <p style="margin:0; white-space:nowrap;">1. I ___ a teacher.</p>
                     <div class="options">
@@ -580,7 +592,7 @@
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4 style="color:#0f3460;">✏️ Exercise 2: Fill in the blanks</h4>
+                <h4>✏️ Exercise 2: Fill in the blanks</h4>
                 <div class="question-box">
                     <p>1. My name ___ Anna.</p>
                     <input type="text" class="text-answer" data-correct="is" placeholder="am / is / are" style="max-width: 150px;">
@@ -644,7 +656,7 @@
             </div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4 style="color:#0f3460;">❓ Comprehension Questions</h4>
+                <h4>❓ Comprehension Questions</h4>
                 <div class="question-box">
                     <p>1. What is the man's name in Dialogue 1?</p>
                     <input type="text" class="text-answer" data-correct="John" placeholder="Type the name...">
@@ -691,11 +703,11 @@
                 <div class="example">5. I <strong>am</strong> fine / good / okay today.</div>
             </div>
 
-            <h3 style="color: #0f3460; margin: 20px 0 10px;">💡 Model Answer</h3>
+            <h3>💡 Model Answer</h3>
             <div class="example-answer">"Hello! My name <strong>is</strong> Anna. I <strong>am</strong> from Bali. I <strong>am</strong> a teacher. I <strong>am</strong> 35 years old. I <strong>am</strong> fine today!"</div>
 
             <div class="homework-box" style="background: #f8f9fa;">
-                <h4 style="color:#0f3460;">✏️ Exercise: Complete the sentences about yourself</h4>
+                <h4>✏️ Exercise: Complete the sentences about yourself</h4>
                 <div class="question-box">
                     <p>1. Hello! My name is <input type="text" class="text-answer" data-correct="my name" placeholder="(your name)" style="max-width: 200px;">.</p>
                 </div>
@@ -738,7 +750,7 @@
                 <span>Moves: <strong id="memory-moves">0</strong></span>
                 <span>Time: <strong id="memory-time">0:00</strong></span>
             </div>
-            <div class="game-hint" id="memory-status" style="color:#0f3460; font-weight:500; text-align:center;">Find all pairs to win!</div>
+            <div class="game-hint" id="memory-status">Find all pairs to win!</div>
             <div class="memory-grid" id="memory-board"></div>
             <div style="text-align:center; margin-top:8px;">
                 <button class="btn" onclick="buildMemoryGame()">🔄 New Game</button>
