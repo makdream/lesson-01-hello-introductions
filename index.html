@@ -245,6 +245,21 @@
             flex-wrap: wrap; margin: 15px 0 0; color: #555; font-size: 1em;
         }
         .memory-stats strong { color: #1a2980; }
+        .match-game-score { text-align: center; margin: 12px 0; font-weight: 600; color: #1a2980; }
+        .match-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 640px; margin: 0 auto; }
+        .match-chip {
+            padding: 10px 14px; border-radius: 10px; border: 2px solid #ddd;
+            background: white; cursor: pointer; font-size: 0.95em; text-align: center;
+            transition: all 0.2s; user-select: none; -webkit-user-select: none;
+        }
+        .match-chip:hover { border-color: #26d0ce; background: #f0f3ff; }
+        .match-chip.en { font-weight: 600; color: #1a2980; }
+        .match-chip.ru { color: #555; }
+        .match-chip.selected { border-color: #1a2980; background: #1a2980; color: white; }
+        .match-chip.matched { border-color: #27ae60; background: #d4edda; color: #155724; cursor: default; }
+        .match-chip.matched:hover { border-color: #27ae60; background: #d4edda; }
+        .match-chip.wrong { border-color: #e74c3c; background: #f8d7da; color: #721c24; }
+        @media (max-width: 520px) { .match-row { grid-template-columns: minmax(0, 1fr); } .match-chip.en, .match-chip.ru { grid-row: auto; } .match-row .sep { display: none; } }
         .video-suggestion {
             background: #f0f3ff; border-radius: 14px; padding: 18px;
             margin-top: 20px; border: 1px solid #e0e7ff;
@@ -548,6 +563,17 @@
                     <p class="transcription">/ˈɑːrtɪst/</p>
                     <p><strong>Художник</strong> — paints pictures</p>
                     <p class="translation">Рисует картины</p>
+                </div>
+            </div>
+
+            <div class="homework-box" style="background: #e8f4fd; border: 2px solid #b2e0d5;">
+                <h4>🔗 Matching Game: English ↔ Russian <span class="translation">Игра: соедини английское слово с русским переводом</span></h4>
+                <p style="color:#555; margin-bottom:12px;">Click an English word, then click its Russian translation. Match all 16 pairs!
+                    <span class="translation">Нажми на английское слово, затем — на русский перевод. Соедини все 16 пар!</span></p>
+                <div class="match-game-score">Matched: <strong id="prof-match-score">0</strong>/16 &nbsp; ✅</div>
+                <div class="match-row" id="prof-match-row"></div>
+                <div style="text-align:center; margin-top:12px;">
+                    <button class="btn" onclick="initProfMatch()">🔄 New Game / Новая игра</button>
                 </div>
             </div>
 
@@ -1366,7 +1392,98 @@
             if (t) t.textContent = Math.floor(memSeconds / 60) + ':' + (memSeconds % 60).toString().padStart(2, '0');
         }
 
+        // ===== PROFESSION MATCHING GAME =====
+        const profWords = [
+            { en: 'Teacher', ru: 'Учитель' },
+            { en: 'Student', ru: 'Студент' },
+            { en: 'Driver', ru: 'Водитель' },
+            { en: 'Businessman', ru: 'Бизнесмен' },
+            { en: 'Doctor', ru: 'Врач' },
+            { en: 'Psychologist', ru: 'Психолог' },
+            { en: 'Dentist', ru: 'Стоматолог' },
+            { en: 'Nurse', ru: 'Медсестра' },
+            { en: 'Engineer', ru: 'Инженер' },
+            { en: 'Cook / Chef', ru: 'Повар' },
+            { en: 'Waiter', ru: 'Официант' },
+            { en: 'Seller', ru: 'Продавец' },
+            { en: 'Fisherman', ru: 'Рыбак' },
+            { en: 'Builder', ru: 'Строитель' },
+            { en: 'Farmer', ru: 'Фермер' },
+            { en: 'Artist', ru: 'Художник' }
+        ];
+        const profMatchTotal = profWords.length;
+        let profSelected = null, profMatched = 0, profLock = false;
+
+        function initProfMatch() {
+            const row = document.getElementById('prof-match-row');
+            if (!row) return;
+            row.innerHTML = '';
+            profSelected = null; profMatched = 0; profLock = false;
+            const score = document.getElementById('prof-match-score');
+            if (score) score.textContent = '0';
+            const en = profWords.slice(), ru = profWords.slice();
+            shuffleArray(en); shuffleArray(ru);
+            for (let i = 0; i < profWords.length; i++) {
+                const cellEn = document.createElement('button');
+                cellEn.type = 'button';
+                cellEn.className = 'match-chip en';
+                cellEn.textContent = en[i].en;
+                cellEn.dataset.pair = profWords.indexOf(en[i]);
+                const cellRu = document.createElement('button');
+                cellRu.type = 'button';
+                cellRu.className = 'match-chip ru';
+                cellRu.textContent = ru[i].ru;
+                cellRu.dataset.pair = profWords.indexOf(ru[i]);
+                cellEn.addEventListener('click', () => profPick(cellEn));
+                cellRu.addEventListener('click', () => profPick(cellRu));
+                row.appendChild(cellEn);
+                row.appendChild(cellRu);
+            }
+        }
+
+        function profPick(chip) {
+            if (profLock || chip.classList.contains('matched')) return;
+            if (chip.classList.contains('selected')) {
+                chip.classList.remove('selected');
+                profSelected = null;
+                return;
+            }
+            if (profSelected === null) {
+                if (chip.classList.contains('en')) {
+                    chip.classList.add('selected');
+                    profSelected = chip;
+                }
+                return;
+            }
+            const first = profSelected;
+            if (chip.classList.contains('en')) {
+                first.classList.remove('selected');
+                chip.classList.add('selected');
+                profSelected = chip;
+                return;
+            }
+            profSelected = null;
+            if (String(first.dataset.pair) === String(chip.dataset.pair)) {
+                first.classList.remove('selected');
+                first.classList.add('matched');
+                chip.classList.add('matched');
+                profMatched++;
+                const score = document.getElementById('prof-match-score');
+                if (score) score.textContent = String(profMatched) + (profMatched === profMatchTotal ? ' 🎉 / Молодец!' : '');
+            } else {
+                profLock = true;
+                first.classList.add('wrong');
+                chip.classList.add('wrong');
+                setTimeout(() => {
+                    first.classList.remove('selected', 'wrong');
+                    chip.classList.remove('wrong');
+                    profLock = false;
+                }, 650);
+            }
+        }
+
         buildMemoryGame();
+        initProfMatch();
     </script>
 </body>
 </html>
