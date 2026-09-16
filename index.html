@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Hello! Nice to Meet You — English for Beginners</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        header p { color: #666; font-size: 1.1em; }
+        .lesson-info {
+            display: flex; justify-content: center; gap: 20px;
+            margin-top: 20px; flex-wrap: wrap;
+        }
+        .lesson-info span {
+            background: #fff0f3; color: #e94560;
+            padding: 8px 16px; border-radius: 20px;
+            font-size: 0.9em; font-weight: 500;
+        }
+        .tabs {
+            display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap;
+        }
+        .tab {
+            background: white; border: none; padding: 12px 24px;
+            border-radius: 25px; cursor: pointer;
+            font-size: 1em; font-weight: 500; color: #666;
+            transition: all 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .tab:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+        .tab.active { background: linear-gradient(135deg, #0f3460 0%, #e94560 100%); color: white; }
+        .section {
+            background: white; border-radius: 20px; padding: 35px;
+            margin-bottom: 25px; display: none;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+        .section.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .section-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 20px; flex-wrap: wrap;
+        }
+        .section-header h2 { color: #0f3460; }
+        .section-icon { font-size: 1.8em; margin-right: 12px; }
+        .section-time { color: #999; font-size: 0.9em; background: #f5f5f5; padding: 4px 12px; border-radius: 12px; }
+        .instruction {
+            background: #fff0f3; border-left: 4px solid #e94560;
+            padding: 14px 18px; border-radius: 0 10px 10px 0;
+            margin-bottom: 20px; color: #555; line-height: 1.6;
+        }
+        .vocab-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 14px; margin-bottom: 20px;
+        }
+        .vocab-card {
+            background: #f8f9fa; padding: 18px; border-radius: 12px;
+            border: 1px solid #eee; transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .vocab-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .vocab-card.clickable { cursor: pointer; }
+        .vocab-card h5 { color: #0f3460; margin-bottom: 5px; font-size: 1.1em; display: flex; align-items: center; gap: 8px; }
+        .vocab-card p { color: #666; font-size: 0.9em; }
+        .vocab-card .transcription { color: #e94560; font-size: 0.85em; font-style: italic; }
+        .vocab-emoji { font-size: 34px; margin-bottom: 8px; }
+        .vocab-speaker {
+            background: #e94560; color: #fff; border: none; border-radius: 50%;
+            width: 28px; height: 28px; font-size: 14px; line-height: 1;
+            cursor: pointer; flex-shrink: 0;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .vocab-speaker:hover { background: #0f3460; transform: scale(1.1); }
+        .record-controls { display: flex; gap: 6px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+        .record-btn, .play-record-btn, .delete-record-btn {
+            background: #f0f3ff; border: 2px solid #0f3460; color: #0f3460;
+            border-radius: 8px; padding: 5px 10px; font-size: 0.85em;
+            cursor: pointer; transition: background 0.2s, color 0.2s;
+        }
+        .record-btn:hover, .play-record-btn:hover, .delete-record-btn:hover { background: #0f3460; color: #fff; }
+        .delete-record-btn { border-color: #e74c3c; color: #e74c3c; }
+        .delete-record-btn:hover { background: #e74c3c; color: #fff; }
+        .record-btn.recording { background: #e74c3c; border-color: #e74c3c; color: #fff; }
+        .save-record-btn {
+            background: #f0f3ff; border: 2px solid #0f3460; color: #0f3460;
+            border-radius: 8px; padding: 5px 10px; font-size: 0.85em;
+            cursor: pointer; text-decoration: none; display: inline-flex; align-items: center;
+        }
+        .save-record-btn:hover { background: #0f3460; color: #fff; }
+        .grammar-box {
+            background: #f8f9fa; border-radius: 14px; padding: 22px;
+            margin-bottom: 20px; border: 1px solid #eee;
+        }
+        .grammar-box h3 { color: #0f3460; margin-bottom: 12px; font-size: 1.15em; }
+        .grammar-box .example {
+            background: #fff; border-left: 3px solid #e94560;
+            padding: 10px 14px; margin-bottom: 8px; border-radius: 0 8px 8px 0;
+            font-size: 0.95em; line-height: 1.5;
+        }
+        .grammar-table {
+            width: 100%; border-collapse: collapse; margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+        .grammar-table th {
+            background: #0f3460; color: white; padding: 12px 16px;
+            text-align: left; font-weight: 600;
+        }
+        .grammar-table td {
+            padding: 10px 16px; border-bottom: 1px solid #eee;
+        }
+        .grammar-table tr:hover td { background: #f0f3ff; }
+        .options { display: flex; flex-wrap: wrap; gap: 10px; }
+        .option-btn {
+            background: white; border: 2px solid #ddd; padding: 10px 20px;
+            border-radius: 10px; cursor: pointer; font-size: 0.95em;
+            transition: all 0.2s;
+        }
+        .option-btn:hover { border-color: #e94560; background: #fff0f3; }
+        .option-btn.selected { border-color: #0f3460; background: #0f3460; color: white; }
+        .option-btn.correct { border-color: #27ae60; background: #d4edda; color: #155724; }
+        .option-btn.incorrect { border-color: #e74c3c; background: #f8d7da; color: #721c24; }
+        .question-box { margin-bottom: 18px; }
+        .question-box p { margin-bottom: 8px; font-weight: 500; }
+        .text-answer {
+            width: 100%; padding: 10px 14px; border: 2px solid #ddd;
+            border-radius: 10px; font-size: 1em; transition: border-color 0.2s;
+        }
+        .text-answer:focus { border-color: #e94560; outline: none; }
+        .btn {
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            color: white; border: none; padding: 12px 28px; border-radius: 12px;
+            font-size: 1em; font-weight: 600; cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .feedback {
+            display: none; margin-top: 15px; padding: 15px;
+            border-radius: 12px; text-align: center;
+        }
+        .feedback.show { display: block; animation: fadeIn 0.3s ease; }
+        .feedback.correct { background: #d4edda; color: #155724; }
+        .feedback.incorrect { background: #fff3cd; color: #856404; }
+        .answer-select {
+            padding: 6px 10px; border: 2px solid #ddd; border-radius: 8px;
+            font-size: 0.95em;
+        }
+        .example-answer {
+            background: #f0f3ff; border-left: 3px solid #0f3460;
+            padding: 12px 16px; margin-bottom: 10px; border-radius: 0 10px 10px 0;
+            font-size: 0.95em;
+        }
+        .dialogue-line {
+            padding: 12px 16px; border-radius: 12px; margin-bottom: 8px;
+            font-size: 0.95em; line-height: 1.5;
+        }
+        .dialogue-a { background: #e8f0fe; }
+        .dialogue-b { background: #f0f8e8; }
+        .dialogue-line .role { font-weight: 700; }
+        .dialogue-line .translation { color: #888; font-size: 0.9em; }
+        .homework-box {
+            background: #f8f9fa; border-radius: 14px; padding: 22px;
+            margin-bottom: 16px; border: 1px solid #eee;
+        }
+        .homework-box h4 { color: #0f3460; margin-bottom: 12px; }
+        .homework-item {
+            display: flex; gap: 12px; align-items: flex-start;
+            margin-bottom: 12px; padding: 12px; background: white;
+            border-radius: 10px; border: 1px solid #eee;
+        }
+        .homework-item input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; }
+        .tips-box {
+            background: #fff8e1; border-radius: 14px; padding: 20px;
+            border: 1px solid #ffe082; margin-bottom: 16px;
+        }
+        .tips-box h4 { color: #f57f17; margin-bottom: 10px; }
+        .tips-box ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        .memory-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+            max-width: 480px; margin: 20px auto;
+        }
+        .memory-card {
+            position: relative; aspect-ratio: 1 / 1.15; border-radius: 12px;
+            cursor: pointer; transform-style: preserve-3d; transition: transform 0.3s;
+            user-select: none; -webkit-user-select: none;
+        }
+        .memory-card.flipped { transform: rotateY(180deg); }
+        .memory-card .back, .memory-card .front {
+            position: absolute; inset: 0; backface-visibility: hidden;
+            -webkit-backface-visibility: hidden; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .memory-card .back {
+            background: linear-gradient(135deg, #0f3460 0%, #e94560 100%);
+            color: #fff; font-size: 26px; font-weight: 700;
+        }
+        .memory-card .front {
+            transform: rotateY(180deg); background: #fff; border: 2px solid #e3e8f0;
+        }
+        .memory-card .front .pic { font-size: 48px; }
+        .memory-card .front .wrd { font-weight: 600; color: #0f3460; font-size: 1em; text-align: center; padding: 6px; line-height: 1.2; }
+        .memory-card.matched .front { background: #d4edda; border-color: #27ae60; }
+        .memory-card.matched { cursor: default; }
+        .memory-stats {
+            display: flex; justify-content: center; gap: 25px;
+            flex-wrap: wrap; margin: 15px 0 0; color: #555; font-size: 1em;
+        }
+        .memory-stats strong { color: #0f3460; }
+        .video-suggestion {
+            background: #f0f3ff; border-radius: 14px; padding: 18px;
+            margin-top: 20px; border: 1px solid #e0e7ff;
+        }
+        .video-suggestion h4 { color: #0f3460; margin-bottom: 8px; }
+        footer {
+            text-align: center; padding: 30px 0; color: rgba(255,255,255,0.7);
+            font-size: 0.9em;
+        }
+        footer p { margin-bottom: 5px; }
+        .announcement-box {
+            background: #f8f9fa; border-radius: 14px; padding: 18px;
+            margin-bottom: 14px; border-left: 4px solid #e94560;
+        }
+        .announcement-box .label { font-weight: 600; color: #0f3460; display: block; margin-bottom: 8px; }
+        .announcement-box p { line-height: 1.6; font-size: 0.95em; }
+        .audio-play-btn {
+            background: #0f3460; color: #fff; border: none; padding: 12px 24px;
+            border-radius: 12px; font-size: 1em; cursor: pointer; margin-bottom: 20px;
+        }
+        .audio-play-btn:hover { background: #e94560; }
+        footer { background: rgba(0,0,0,0.15); border-radius: 14px; padding: 20px; margin-top: 10px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .section { padding: 25px; }
+            .section-header { flex-wrap: wrap; }
+            .section-time { margin-left: 0; }
+            .options { flex-direction: column; }
+            .option-btn { width: 100%; }
+            .text-answer { max-width: 100%; }
+            .memory-grid { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👋 Lesson 1: Hello! Nice to Meet You</h1>
+            <p>English for Absolute Beginners — Daily Communication Basics</p>
+            <div class="lesson-info">
+                <span>⏱ 40 minutes</span>
+                <span>🎯 Level A0 (Beginner)</span>
+                <span>👤 Adult Learners</span>
+                <span>🗣️ Daily Communication</span>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="warmup">👋 Warm-up</button>
+            <button class="tab" data-tab="vocab">📖 Vocabulary</button>
+            <button class="tab" data-tab="grammar">📚 Grammar</button>
+            <button class="tab" data-tab="listening">🎧 Listening</button>
+            <button class="tab" data-tab="writing">✍️ Writing</button>
+            <button class="tab" data-tab="memory">🧠 Memory Game</button>
+            <button class="tab" data-tab="homework">📝 Homework</button>
+        </div>
+
+        <!-- WARM-UP -->
+        <div class="section active" id="warmup">
+            <div class="section-header">
+                <span class="section-icon">👋</span>
+                <h2 class="section-title">Warm-up: First Contact</h2>
+                <span class="section-time">⏱ 5 min</span>
+            </div>
+
+            <div class="instruction">
+                Today is your first English lesson! Don't worry — just try to say the words. The teacher will help you with pronunciation.
+            </div>
+
+            <div style="text-align:center; font-size:3em; margin:20px 0;">👋🌅☀️🌇😊</div>
+
+            <div class="question-box">
+                <p>1️⃣ Can you say "Hello" in English?</p>
+                <p>2️⃣ What is your name?</p>
+                <p>3️⃣ Where are you from?</p>
+                <p>4️⃣ What do you do? (job)</p>
+                <p>5️⃣ How are you today?</p>
+            </div>
+
+            <h3 style="color: #0f3460; margin: 20px 0 10px;">💡 Model Introduction</h3>
+            <div class="example-answer"><strong>Hello!</strong> — "Hello! My name is Anna. I am from Bali. I am a teacher. I am fine today!"</div>
+            <div class="example-answer"><strong>Example 2:</strong> — "Hi! I am John. I am from Jakarta. I am a driver. I am good, thank you!"</div>
+        </div>
+
+        <!-- VOCABULARY -->
+        <div class="section" id="vocab">
+            <div class="section-header">
+                <span class="section-icon">📖</span>
+                <h2 class="section-title">Vocabulary: Greetings &amp; Introductions</h2>
+                <span class="section-time">⏱ 8 min</span>
+            </div>
+
+            <div class="tips-box" style="background:#fff0f3; border-color:#e94560;">
+                <h4>🎤 How to Use</h4>
+                <p>Tap <strong>🔊</strong> to hear the word. Tap <strong>🎤 Record</strong> to say it yourself. Then tap <strong>▶️</strong> to compare, or <strong>🗑 Delete</strong> and try again.</p>
+            </div>
+
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <h5>Hello / Hi</h5>
+                    <p class="transcription">/həˈloʊ/ /haɪ/</p>
+                    <p><strong>Привет</strong> — the most common greeting</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Good morning</h5>
+                    <p class="transcription">/ɡʊd ˈmɔːrnɪŋ/</p>
+                    <p><strong>Доброе утро</strong> — greeting until 12:00</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Good afternoon</h5>
+                    <p class="transcription">/ɡʊd ˌæftərˈnuːn/</p>
+                    <p><strong>Добрый день</strong> — greeting from 12:00 to 18:00</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Good evening</h5>
+                    <p class="transcription">/ɡʊd ˈiːvnɪŋ/</p>
+                    <p><strong>Добрый вечер</strong> — greeting from 18:00</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Goodbye / Bye</h5>
+                    <p class="transcription">/ɡʊdˈbaɪ/ /baɪ/</p>
+                    <p><strong>До свидания</strong> — how to say goodbye</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>My name is…</h5>
+                    <p class="transcription">/maɪ neɪm ɪz/</p>
+                    <p><strong>Меня зовут…</strong> — introducing yourself</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Nice to meet you</h5>
+                    <p class="transcription">/naɪs tə miːt juː/</p>
+                    <p><strong>Приятно познакомиться</strong> — said after introduction</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>How are you?</h5>
+                    <p class="transcription">/haʊ ɑːr juː/</p>
+                    <p><strong>Как дела?</strong> — asking how someone feels</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>I'm fine</h5>
+                    <p class="transcription">/aɪm faɪn/</p>
+                    <p><strong>У меня всё хорошо</strong> — positive answer</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Thank you</h5>
+                    <p class="transcription">/θæŋk juː/</p>
+                    <p><strong>Спасибо</strong> — showing gratitude</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Please</h5>
+                    <p class="transcription">/pliːz/</p>
+                    <p><strong>Пожалуйста</strong> — being polite</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Sorry</h5>
+                    <p class="transcription">/ˈsɒri/</p>
+                    <p><strong>Извините / Простите</strong> — apologizing</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>Yes</h5>
+                    <p class="transcription">/jɛs/</p>
+                    <p><strong>Да</strong> — agreeing / positive answer</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>No</h5>
+                    <p class="transcription">/noʊ/</p>
+                    <p><strong>Нет</strong> — disagreeing / negative answer</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>I am from…</h5>
+                    <p class="transcription">/aɪ æm frɒm/</p>
+                    <p><strong>Я из…</strong> — saying where you're from</p>
+                </div>
+                <div class="vocab-card">
+                    <h5>I am a…</h5>
+                    <p class="transcription">/aɪ æm ə/</p>
+                    <p><strong>Я (профессия)…</strong> — saying your job</p>
+                </div>
+            </div>
+
+            <div class="homework-box" style="background: #e8f4fd;">
+                <h4>🎯 Practice: Match the word with its meaning</h4>
+                <div style="color: #555; margin: 15px 0; line-height: 2.2;">
+                    1. Hello — <select class="answer-select" data-correct="привет">
+                        <option value="">...</option>
+                        <option value="привет">привет</option>
+                        <option value="пожалуйста">пожалуйста</option>
+                        <option value="извините">извините</option>
+                    </select><br>
+                    2. Thank you — <select class="answer-select" data-correct="спасибо">
+                        <option value="">...</option>
+                        <option value="спасибо">спасибо</option>
+                        <option value="привет">привет</option>
+                        <option value="нет">нет</option>
+                    </select><br>
+                    3. Please — <select class="answer-select" data-correct="пожалуйста">
+                        <option value="">...</option>
+                        <option value="спасибо">спасибо</option>
+                        <option value="пожалуйста">пожалуйста</option>
+                        <option value="да">да</option>
+                    </select><br>
+                    4. Sorry — <select class="answer-select" data-correct="извините">
+                        <option value="">...</option>
+                        <option value="извините">извините</option>
+                        <option value="привет">привет</option>
+                        <option value="пожалуйста">пожалуйста</option>
+                    </select><br>
+                    5. Goodbye — <select class="answer-select" data-correct="до свидания">
+                        <option value="">...</option>
+                        <option value="привет">привет</option>
+                        <option value="до свидания">до свидания</option>
+                        <option value="спасибо">спасибо</option>
+                    </select><br>
+                    6. Yes — <select class="answer-select" data-correct="да">
+                        <option value="">...</option>
+                        <option value="да">да</option>
+                        <option value="нет">нет</option>
+                        <option value="пожалуйста">пожалуйста</option>
+                    </select><br>
+                    7. No — <select class="answer-select" data-correct="нет">
+                        <option value="">...</option>
+                        <option value="да">да</option>
+                        <option value="нет">нет</option>
+                        <option value="спасибо">спасибо</option>
+                    </select><br>
+                    8. How are you? — <select class="answer-select" data-correct="как дела?">
+                        <option value="">...</option>
+                        <option value="как дела?">как дела?</option>
+                        <option value="как вас зовут?">как вас зовут?</option>
+                        <option value="откуда вы?">откуда вы?</option>
+                    </select><br>
+                    9. Nice to meet you — <select class="answer-select" data-correct="приятно познакомиться">
+                        <option value="">...</option>
+                        <option value="приятно познакомиться">приятно познакомиться</option>
+                        <option value="до свидания">до свидания</option>
+                        <option value="как дела?">как дела?</option>
+                    </select><br>
+                    10. I am from… — <select class="answer-select" data-correct="я из…">
+                        <option value="">...</option>
+                        <option value="я из…">я из…</option>
+                        <option value="меня зовут…">меня зовут…</option>
+                        <option value="я (профессия)…">я (профессия)…</option>
+                    </select><br>
+                </div>
+                <button class="btn" onclick="checkVocabMatch()">Check</button>
+                <div class="feedback" id="vocab-feedback"></div>
+            </div>
+        </div>
+
+        <!-- GRAMMAR -->
+        <div class="section" id="grammar">
+            <div class="section-header">
+                <span class="section-icon">📚</span>
+                <h2 class="section-title">Grammar: I am, You are, He is…</h2>
+                <span class="section-time">⏱ 10 min</span>
+            </div>
+
+            <div class="instruction">
+                The verb <strong>"to be"</strong> (am / is / are) is the most important verb in English. You use it every day to describe yourself and others.
+            </div>
+
+            <div class="grammar-box">
+                <h3>👤 Subject Pronouns</h3>
+                <div class="example">👤 <strong>I</strong> — Я</div>
+                <div class="example">👤 <strong>You</strong> — Ты / Вы</div>
+                <div class="example">👤 <strong>He</strong> — Он</div>
+                <div class="example">👤 <strong>She</strong> — Она</div>
+                <div class="example">🌍 <strong>It</strong> — Оно (предмет, животное, город)</div>
+                <div class="example">👥 <strong>We</strong> — Мы</div>
+                <div class="example">👥 <strong>They</strong> — Они</div>
+            </div>
+
+            <div class="grammar-box">
+                <h3>Verb "to be" — Present Tense</h3>
+                <table class="grammar-table">
+                    <thead>
+                        <tr><th>Pronoun</th><th>to be</th><th>Example</th><th>Translation</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>I</strong></td><td>am</td><td>I <strong>am</strong> a teacher.</td><td>Я учитель.</td></tr>
+                        <tr><td><strong>You</strong></td><td>are</td><td>You <strong>are</strong> my friend.</td><td>Ты мой друг.</td></tr>
+                        <tr><td><strong>He</strong></td><td>is</td><td>He <strong>is</strong> from Bali.</td><td>Он из Бали.</td></tr>
+                        <tr><td><strong>She</strong></td><td>is</td><td>She <strong>is</strong> a student.</td><td>Она студентка.</td></tr>
+                        <tr><td><strong>It</strong></td><td>is</td><td>It <strong>is</strong> a good day.</td><td>Хороший день.</td></tr>
+                        <tr><td><strong>We</strong></td><td>are</td><td>We <strong>are</strong> happy.</td><td>Мы счастливы.</td></tr>
+                        <tr><td><strong>They</strong></td><td>are</td><td>They <strong>are</strong> from Jakarta.</td><td>Они из Джакарты.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grammar-box">
+                <h3>📎 Short Forms (Contractions)</h3>
+                <p style="color:#555; margin-bottom:12px;">In spoken English, we usually use short forms:</p>
+                <div class="example">I am → <strong>I'm</strong> &nbsp;|&nbsp; You are → <strong>You're</strong> &nbsp;|&nbsp; He is → <strong>He's</strong></div>
+                <div class="example">She is → <strong>She's</strong> &nbsp;|&nbsp; It is → <strong>It's</strong> &nbsp;|&nbsp; We are → <strong>We're</strong> &nbsp;|&nbsp; They are → <strong>They're</strong></div>
+            </div>
+
+            <div class="grammar-box">
+                <h3>❓ Questions with "to be"</h3>
+                <p style="color:#555; margin-bottom:12px;">To make a question, put the verb BEFORE the subject:</p>
+                <div class="example">❓ <strong>Are</strong> you a teacher? — ✅ Yes, I am. / ❌ No, I'm not.</div>
+                <div class="example">❓ <strong>Is</strong> she from Bali? — ✅ Yes, she is. / ❌ No, she isn't.</div>
+                <div class="example">❓ <strong>Is</strong> he your friend? — ✅ Yes, he is. / ❌ No, he isn't.</div>
+                <div class="example">❓ <strong>Are</strong> they students? — ✅ Yes, they are. / ❌ No, they aren't.</div>
+            </div>
+
+            <div class="homework-box" style="background: #f8f9fa;">
+                <h4 style="color:#0f3460;">✏️ Exercise 1: Choose am / is / are</h4>
+                <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <p style="margin:0; white-space:nowrap;">1. I ___ a teacher.</p>
+                    <div class="options">
+                        <button class="option-btn">am</button>
+                        <button class="option-btn">is</button>
+                        <button class="option-btn">are</button>
+                    </div>
+                </div>
+                <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <p style="margin:0; white-space:nowrap;">2. She ___ from Bali.</p>
+                    <div class="options">
+                        <button class="option-btn">am</button>
+                        <button class="option-btn">is</button>
+                        <button class="option-btn">are</button>
+                    </div>
+                </div>
+                <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <p style="margin:0; white-space:nowrap;">3. We ___ students.</p>
+                    <div class="options">
+                        <button class="option-btn">am</button>
+                        <button class="option-btn">is</button>
+                        <button class="option-btn">are</button>
+                    </div>
+                </div>
+                <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <p style="margin:0; white-space:nowrap;">4. He ___ my friend.</p>
+                    <div class="options">
+                        <button class="option-btn">am</button>
+                        <button class="option-btn">is</button>
+                        <button class="option-btn">are</button>
+                    </div>
+                </div>
+                <div class="question-box" style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                    <p style="margin:0; white-space:nowrap;">5. They ___ from Jakarta.</p>
+                    <div class="options">
+                        <button class="option-btn">am</button>
+                        <button class="option-btn">is</button>
+                        <button class="option-btn">are</button>
+                    </div>
+                </div>
+                <button class="btn" onclick="checkGrammar1()">Check Answers</button>
+                <div class="feedback" id="grammar1-feedback"></div>
+            </div>
+
+            <div class="homework-box" style="background: #f8f9fa;">
+                <h4 style="color:#0f3460;">✏️ Exercise 2: Fill in the blanks</h4>
+                <div class="question-box">
+                    <p>1. My name ___ Anna.</p>
+                    <input type="text" class="text-answer" data-correct="is" placeholder="am / is / are" style="max-width: 150px;">
+                </div>
+                <div class="question-box">
+                    <p>2. I ___ fine today.</p>
+                    <input type="text" class="text-answer" data-correct="am" placeholder="am / is / are" style="max-width: 150px;">
+                </div>
+                <div class="question-box">
+                    <p>3. ___ you a teacher?</p>
+                    <input type="text" class="text-answer" data-correct="Are" placeholder="Am / Is / Are" style="max-width: 150px;">
+                </div>
+                <div class="question-box">
+                    <p>4. He ___ not a student.</p>
+                    <input type="text" class="text-answer" data-correct="is" placeholder="am / is / are" style="max-width: 150px;">
+                </div>
+                <div class="question-box">
+                    <p>5. We ___ happy.</p>
+                    <input type="text" class="text-answer" data-correct="are" placeholder="am / is / are" style="max-width: 150px;">
+                </div>
+                <button class="btn" onclick="checkGrammar2()">Check Answers</button>
+                <div class="feedback" id="grammar2-feedback"></div>
+            </div>
+        </div>
+
+        <!-- LISTENING -->
+        <div class="section" id="listening">
+            <div class="section-header">
+                <span class="section-icon">🎧</span>
+                <h2 class="section-title">Listening: Everyday Dialogues</h2>
+                <span class="section-time">⏱ 7 min</span>
+            </div>
+
+            <div class="instruction">
+                Listen to the dialogues. Try to understand the main idea first, then listen for details.
+            </div>
+
+            <button class="audio-play-btn" onclick="playDialogue1()">🔊 Dialogue 1</button>
+            <button class="audio-play-btn" onclick="playDialogue2()">🔊 Dialogue 2</button>
+
+            <div class="announcement-box">
+                <span class="label">💬 Dialogue 1 — Meeting Someone</span>
+                <p><strong>A:</strong> Hello! My name is John. What's your name?</p>
+                <p><strong>B:</strong> Hi! I'm Maria. Nice to meet you!</p>
+                <p><strong>A:</strong> Nice to meet you too! Where are you from?</p>
+                <p><strong>B:</strong> I'm from Bali. And you?</p>
+                <p><strong>A:</strong> I'm from Jakarta. I'm a driver.</p>
+                <p><strong>B:</strong> I'm a teacher. Nice to meet you, John!</p>
+                <p><strong>A:</strong> Goodbye, Maria!</p>
+                <p><strong>B:</strong> Bye!</p>
+            </div>
+
+            <div class="announcement-box">
+                <span class="label">💬 Dialogue 2 — Morning Greeting</span>
+                <p><strong>A:</strong> Good morning! How are you?</p>
+                <p><strong>B:</strong> I'm fine, thank you! And you?</p>
+                <p><strong>A:</strong> I'm good, thanks! Are you a student?</p>
+                <p><strong>B:</strong> Yes, I am. I'm a student at the university.</p>
+                <p><strong>A:</strong> That's great! See you later!</p>
+                <p><strong>B:</strong> See you! Goodbye!</p>
+            </div>
+
+            <div class="homework-box" style="background: #f8f9fa;">
+                <h4 style="color:#0f3460;">❓ Comprehension Questions</h4>
+                <div class="question-box">
+                    <p>1. What is the man's name in Dialogue 1?</p>
+                    <input type="text" class="text-answer" data-correct="John" placeholder="Type the name...">
+                </div>
+                <div class="question-box">
+                    <p>2. Where is Maria from?</p>
+                    <input type="text" class="text-answer" data-correct="Bali" placeholder="Type the place...">
+                </div>
+                <div class="question-box">
+                    <p>3. What is Maria's job?</p>
+                    <input type="text" class="text-answer" data-correct="teacher" placeholder="Type the job...">
+                </div>
+                <div class="question-box">
+                    <p>4. In Dialogue 2, is the woman a student?</p>
+                    <input type="text" class="text-answer" data-correct="yes" placeholder="yes / no">
+                </div>
+                <div class="question-box">
+                    <p>5. How does John say goodbye?</p>
+                    <input type="text" class="text-answer" data-correct="goodbye" placeholder="Type what he says...">
+                </div>
+                <button class="btn" onclick="checkComprehension()">Check Answers</button>
+                <div class="feedback" id="comprehension-feedback"></div>
+            </div>
+        </div>
+
+        <!-- WRITING -->
+        <div class="section" id="writing">
+            <div class="section-header">
+                <span class="section-icon">✍️</span>
+                <h2 class="section-title">Writing: About Me</h2>
+                <span class="section-time">⏱ 10 min</span>
+            </div>
+
+            <div class="instruction">
+                Write about yourself. Use the sentences below and fill in the blanks with your own information.
+            </div>
+
+            <div class="grammar-box">
+                <h3>📝 My Self-Introduction</h3>
+                <div class="example">1. My name <strong>is</strong> ________.</div>
+                <div class="example">2. I <strong>am</strong> from ________.</div>
+                <div class="example">3. I <strong>am</strong> a ________. (job)</div>
+                <div class="example">4. I <strong>am</strong> ________ years old.</div>
+                <div class="example">5. I <strong>am</strong> fine / good / okay today.</div>
+            </div>
+
+            <h3 style="color: #0f3460; margin: 20px 0 10px;">💡 Model Answer</h3>
+            <div class="example-answer">"Hello! My name <strong>is</strong> Anna. I <strong>am</strong> from Bali. I <strong>am</strong> a teacher. I <strong>am</strong> 35 years old. I <strong>am</strong> fine today!"</div>
+
+            <div class="homework-box" style="background: #f8f9fa;">
+                <h4 style="color:#0f3460;">✏️ Exercise: Complete the sentences about yourself</h4>
+                <div class="question-box">
+                    <p>1. Hello! My name is <input type="text" class="text-answer" data-correct="my name" placeholder="(your name)" style="max-width: 200px;">.</p>
+                </div>
+                <div class="question-box">
+                    <p>2. I am from <input type="text" class="text-answer" data-correct="my city" placeholder="(your city/country)" style="max-width: 200px;">.</p>
+                </div>
+                <div class="question-box">
+                    <p>3. I am a <input type="text" class="text-answer" data-correct="my job" placeholder="(your job)" style="max-width: 200px;">.</p>
+                </div>
+                <div class="question-box">
+                    <p>4. I am <input type="text" class="text-answer" data-correct="my age" placeholder="(your age)" style="max-width: 200px;"> years old.</p>
+                </div>
+                <div class="question-box">
+                    <p>5. Today I am <input type="text" class="text-answer" data-correct="fine" placeholder="fine / good / okay" style="max-width: 200px;">.</p>
+                </div>
+                <div class="tips-box">
+                    <h4>💡 Writing Tips</h4>
+                    <ul>
+                        <li>Keep sentences short — one idea per sentence</li>
+                        <li>Use "I am" (I'm) for all your information</li>
+                        <li>Read your text out loud after writing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEMORY GAME -->
+        <div class="section" id="memory">
+            <div class="section-header">
+                <span class="section-icon">🧠</span>
+                <h2 class="section-title">Memory Game: Words &amp; Pictures</h2>
+                <span class="section-time">⏱ 5 min</span>
+            </div>
+
+            <div class="instruction">
+                Flip two cards: one word and one picture. If they match, they stay open. Find all 8 pairs!
+            </div>
+
+            <div class="memory-stats">
+                <span>Moves: <strong id="memory-moves">0</strong></span>
+                <span>Time: <strong id="memory-time">0:00</strong></span>
+            </div>
+            <div class="game-hint" id="memory-status" style="color:#0f3460; font-weight:500; text-align:center;">Find all pairs to win!</div>
+            <div class="memory-grid" id="memory-board"></div>
+            <div style="text-align:center; margin-top:8px;">
+                <button class="btn" onclick="buildMemoryGame()">🔄 New Game</button>
+            </div>
+        </div>
+
+        <!-- HOMEWORK -->
+        <div class="section" id="homework">
+            <div class="section-header">
+                <span class="section-icon">📝</span>
+                <h2 class="section-title">Homework (15–20 min)</h2>
+                <span class="section-time">⏱ After lesson</span>
+            </div>
+
+            <div class="homework-box">
+                <h4>✅ Tasks to Complete</h4>
+                <div class="homework-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>1. 🗣️ Practice saying</strong>
+                        <p>Say "Hello! My name is… I am from… I am a…" 5 times out loud. Practice the pronunciation.</p>
+                    </div>
+                </div>
+                <div class="homework-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>2. ✍️ Write about yourself</strong>
+                        <p>Write 5 sentences about yourself: name, city, job, age, how you feel today. Use "I am…"</p>
+                    </div>
+                </div>
+                <div class="homework-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>3. 🎤 Record yourself</strong>
+                        <p>Record your self-introduction (5 sentences). Listen to it and try to improve pronunciation.</p>
+                    </div>
+                </div>
+                <div class="homework-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>4. 🧠 Vocabulary</strong>
+                        <p>Review all vocabulary cards. Try to say each word from the Russian translation.</p>
+                    </div>
+                </div>
+                <div class="homework-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>5. 🎬 Watch at home</strong>
+                        <p>Search YouTube: "English greetings for beginners" — watch one video (5 min) and write down 3 new words you hear.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-box">
+                <h4>📌 How to Check Homework Next Lesson</h4>
+                <ul>
+                    <li>Student reads their self-introduction out loud</li>
+                    <li>Teacher helps with pronunciation of difficult words</li>
+                    <li>Student explains 3 new words from the video</li>
+                    <li>Quick vocabulary quiz: teacher says Russian, student says English</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>👋 English for Beginners — Lesson 1: Hello! Nice to Meet You</p>
+        <p>Level A0 | Greetings, Introductions, Verb "to be"</p>
+    </footer>
+
+    <script>
+        // ===== TAB NAVIGATION =====
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                document.getElementById(this.dataset.tab).classList.add('active');
+            });
+        });
+
+        // ===== SPEECH SYNTHESIS =====
+        function speakWord(text) {
+            if (!('speechSynthesis' in window)) {
+                alert('Text-to-speech is not supported in this browser.');
+                return;
+            }
+            speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            const voices = speechSynthesis.getVoices();
+            const en = voices.find(v => v.lang === 'en-US' || v.lang === 'en-GB') || null;
+            if (en) utterance.voice = en;
+            utterance.lang = 'en-US';
+            utterance.rate = 0.8;
+            speechSynthesis.speak(utterance);
+        }
+
+        // ===== VOCAB SPEAKER + RECORD BUTTONS =====
+        document.querySelectorAll('.vocab-card').forEach(card => {
+            const wordEl = card.querySelector('h5');
+            const word = wordEl.textContent.trim();
+
+            const speaker = document.createElement('button');
+            speaker.type = 'button';
+            speaker.className = 'vocab-speaker';
+            speaker.textContent = '🔊';
+            speaker.title = 'Listen to "' + word + '"';
+            speaker.setAttribute('aria-label', 'Play pronunciation of ' + word);
+            speaker.addEventListener('click', e => { e.stopPropagation(); speakWord(word); });
+            wordEl.appendChild(speaker);
+            card.classList.add('clickable');
+            card.addEventListener('click', () => speakWord(word));
+        });
+
+        // ===== VOCAB EMOJI INJECTION =====
+        const vocabEmojis = {
+            'hello / hi': '👋',
+            'good morning': '🌅',
+            'good afternoon': '☀️',
+            'good evening': '🌇',
+            'goodbye / bye': '✋',
+            'my name is…': '📛',
+            'nice to meet you': '😊',
+            'how are you?': '🤔',
+            "i'm fine": '🙂',
+            'thank you': '💝',
+            'please': '🙋',
+            'sorry': '🙇',
+            'yes': '✅',
+            'no': '❌',
+            'i am from…': '🌍',
+            'i am a…': '👨‍💼'
+        };
+        document.querySelectorAll('.vocab-card').forEach(card => {
+            const key = card.querySelector('h5').childNodes[0].nodeValue.trim().toLowerCase();
+            const emoji = vocabEmojis[key];
+            if (!emoji) return;
+            const icon = document.createElement('div');
+            icon.className = 'vocab-emoji';
+            icon.setAttribute('aria-hidden', 'true');
+            icon.textContent = emoji;
+            card.prepend(icon);
+        });
+
+        // ===== VOICE RECORDING =====
+        let activeRecorder = null;
+        document.querySelectorAll('.vocab-card').forEach(card => {
+            const word = card.querySelector('h5').childNodes[0].nodeValue.trim();
+            const controls = document.createElement('div');
+            controls.className = 'record-controls';
+
+            const recordBtn = document.createElement('button');
+            recordBtn.type = 'button';
+            recordBtn.className = 'record-btn';
+            recordBtn.textContent = '🎤 Record';
+            recordBtn.title = 'Record yourself saying "' + word + '"';
+
+            const playBtn = document.createElement('button');
+            playBtn.type = 'button';
+            playBtn.className = 'play-record-btn';
+            playBtn.textContent = '▶️ My voice';
+            playBtn.style.display = 'none';
+            playBtn.title = 'Listen to your recording';
+
+            const saveLink = document.createElement('a');
+            saveLink.className = 'save-record-btn';
+            saveLink.textContent = '⬇️ Save';
+            saveLink.style.display = 'none';
+            saveLink.download = word.replace(/[^a-z0-9]+/gi, '-') + '.webm';
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.type = 'button';
+            deleteBtn.className = 'delete-record-btn';
+            deleteBtn.textContent = '🗑 Delete';
+            deleteBtn.style.display = 'none';
+            deleteBtn.title = 'Delete your recording';
+
+            const rec = { chunks: [], blobUrl: null, recorder: null, stream: null };
+
+            recordBtn.addEventListener('click', async e => {
+                e.stopPropagation();
+                if (rec.recorder && rec.recorder.state === 'recording') { rec.recorder.stop(); return; }
+                if (activeRecorder) { try { activeRecorder.stop(); } catch (err) {} }
+                if (!navigator.mediaDevices || !window.MediaRecorder) {
+                    alert('Recording is not supported in this browser. Please use Chrome, Edge or Firefox.');
+                    return;
+                }
+                try { rec.stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+                catch (err) { alert('Microphone was not allowed. Please allow the microphone in your browser settings.'); return; }
+                rec.recorder = new MediaRecorder(rec.stream);
+                activeRecorder = rec.recorder;
+                rec.chunks = [];
+                rec.recorder.ondataavailable = ev => { if (ev.data && ev.data.size) rec.chunks.push(ev.data); };
+                rec.recorder.onstop = () => {
+                    if (rec.stream) rec.stream.getTracks().forEach(t => t.stop());
+                    activeRecorder = null;
+                    const type = (rec.recorder && rec.recorder.mimeType) || 'audio/webm';
+                    const blob = new Blob(rec.chunks, { type });
+                    if (rec.blobUrl) URL.revokeObjectURL(rec.blobUrl);
+                    rec.blobUrl = URL.createObjectURL(blob);
+                    playBtn.style.display = 'inline-block';
+                    saveLink.style.display = 'inline-flex';
+                    saveLink.href = rec.blobUrl;
+                    deleteBtn.style.display = 'inline-block';
+                    recordBtn.classList.remove('recording');
+                    recordBtn.textContent = '🎤 Record';
+                    recordBtn.title = 'Record yourself saying "' + word + '"';
+                };
+                rec.recorder.start();
+                recordBtn.classList.add('recording');
+                recordBtn.textContent = '⏹ Stop';
+                recordBtn.title = 'Stop recording';
+            });
+
+            playBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                if (rec.blobUrl) new Audio(rec.blobUrl).play();
+            });
+            saveLink.addEventListener('click', e => e.stopPropagation());
+            deleteBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                if (rec.blobUrl) URL.revokeObjectURL(rec.blobUrl);
+                rec.blobUrl = null; rec.chunks = []; rec.recorder = null;
+                playBtn.style.display = 'none';
+                saveLink.style.display = 'none'; saveLink.href = '';
+                deleteBtn.style.display = 'none';
+            });
+
+            controls.appendChild(recordBtn);
+            controls.appendChild(playBtn);
+            controls.appendChild(saveLink);
+            controls.appendChild(deleteBtn);
+            card.appendChild(controls);
+        });
+
+        // ===== VOCAB CHECK =====
+        function checkVocabMatch() {
+            const selects = document.querySelectorAll('#vocab .answer-select');
+            let correct = 0;
+            selects.forEach(select => {
+                if (select.value === select.dataset.correct) {
+                    correct++;
+                    select.style.borderColor = '#27ae60';
+                    select.style.backgroundColor = '#d4edda';
+                } else {
+                    select.style.borderColor = '#e74c3c';
+                    select.style.backgroundColor = '#f8d7da';
+                }
+            });
+            const fb = document.getElementById('vocab-feedback');
+            fb.classList.add('show');
+            fb.className = `feedback show ${correct === selects.length ? 'correct' : 'incorrect'}`;
+            fb.innerHTML = `<h4>${correct === selects.length ? '🎉 Excellent!' : '📝 Results: ' + correct + '/' + selects.length}</h4>`;
+        }
+
+        // ===== GRAMMAR EXERCISES =====
+        function checkGrammar1() {
+            const answers = ['am', 'is', 'are', 'is', 'are'];
+            const questions = document.querySelectorAll('#grammar .question-box');
+            let correct = 0;
+            questions.forEach((q, i) => {
+                const selected = q.querySelector('.option-btn.selected');
+                if (!selected) return;
+                if (selected.textContent.trim() === answers[i]) {
+                    correct++;
+                    selected.classList.add('correct');
+                } else {
+                    selected.classList.add('incorrect');
+                }
+            });
+            const fb = document.getElementById('grammar1-feedback');
+            fb.classList.add('show');
+            fb.className = `feedback show ${correct === 5 ? 'correct' : 'incorrect'}`;
+            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Perfect!' : '📝 Results: ' + correct + '/5'}</h4>` +
+                `<p>${correct === 5 ? 'You understand am/is/are perfectly!' : 'Correct: 1. am 2. is 3. are 4. is 5. are'}</p>`;
+        }
+
+        function checkGrammar2() {
+            const inputs = document.querySelectorAll('#grammar .text-answer');
+            let correct = 0;
+            inputs.forEach(input => {
+                const user = input.value.trim().toLowerCase();
+                const expected = input.dataset.correct.toLowerCase();
+                if (user === expected) {
+                    correct++;
+                    input.style.borderColor = '#27ae60';
+                    input.style.backgroundColor = '#d4edda';
+                } else {
+                    input.style.borderColor = '#e74c3c';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.value = input.value + ' → ' + input.dataset.correct;
+                }
+            });
+            const fb = document.getElementById('grammar2-feedback');
+            fb.classList.add('show');
+            fb.className = `feedback show ${correct === 5 ? 'correct' : 'incorrect'}`;
+            fb.innerHTML = `<h4>${correct === 5 ? '🎉 Excellent!' : '📝 Results: ' + correct + '/5'}</h4>`;
+        }
+
+        // ===== LISTENING =====
+        function playTTS(texts, rate) {
+            if (!('speechSynthesis' in window)) return;
+            const voices = speechSynthesis.getVoices();
+            const en = voices.find(v => v.lang === 'en-US' || v.lang === 'en-GB') || null;
+            texts.forEach((t, i) => {
+                setTimeout(() => {
+                    const u = new SpeechSynthesisUtterance(t);
+                    if (en) u.voice = en;
+                    u.lang = 'en-US';
+                    u.rate = rate || 0.8;
+                    speechSynthesis.speak(u);
+                }, i * 5000);
+            });
+        }
+
+        function playDialogue1() {
+            playTTS([
+                "Hello! My name is John. What's your name?",
+                "Hi! I'm Maria. Nice to meet you!",
+                "Nice to meet you too! Where are you from?",
+                "I'm from Bali. And you?",
+                "I'm from Jakarta. I'm a driver.",
+                "I'm a teacher. Nice to meet you, John!",
+                "Goodbye, Maria!",
+                "Bye!"
+            ], 0.85);
+        }
+
+        function playDialogue2() {
+            playTTS([
+                "Good morning! How are you?",
+                "I'm fine, thank you! And you?",
+                "I'm good, thanks! Are you a student?",
+                "Yes, I am. I'm a student at the university.",
+                "That's great! See you later!",
+                "See you! Goodbye!"
+            ], 0.85);
+        }
+
+        function checkComprehension() {
+            const inputs = document.querySelectorAll('#listening .text-answer');
+            let correct = 0;
+            inputs.forEach(input => {
+                const user = input.value.trim().toLowerCase();
+                const expected = input.dataset.correct.toLowerCase();
+                if (user === expected) {
+                    correct++;
+                    input.style.borderColor = '#27ae60';
+                    input.style.backgroundColor = '#d4edda';
+                } else {
+                    input.style.borderColor = '#e74c3c';
+                    input.style.backgroundColor = '#f8d7da';
+                    input.value = input.value + ' → ' + input.dataset.correct;
+                }
+            });
+            const fb = document.getElementById('comprehension-feedback');
+            fb.classList.add('show');
+            fb.className = `feedback show ${correct >= 4 ? 'correct' : 'incorrect'}`;
+            fb.innerHTML = `<h4>${correct >= 4 ? '🎧 Good listening!' : '📝 Results: ' + correct + '/5'}</h4>` +
+                `<p>${correct >= 4 ? 'You understood the dialogues well!' : 'Listen again and try to catch the details.'}</p>`;
+        }
+
+        // ===== OPTION BUTTONS =====
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const question = this.closest('.question-box');
+                question.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // ===== MEMORY GAME =====
+        const memoryPicks = [
+            { en: 'Hello', emoji: '👋' },
+            { en: 'Goodbye', emoji: '🚶' },
+            { en: 'Thank you', emoji: '🙏' },
+            { en: 'Yes', emoji: '✅' },
+            { en: 'No', emoji: '❌' },
+            { en: 'Please', emoji: '🙋' },
+            { en: 'Sorry', emoji: '🙇' },
+            { en: 'Good morning', emoji: '🌅' }
+        ];
+        let memTimer = null, memMoves = 0, memMatched = 0, memSeconds = 0, memFirst = null, memLock = false;
+        const memTotal = memoryPicks.length;
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function buildMemoryGame() {
+            const board = document.getElementById('memory-board');
+            board.innerHTML = '';
+            memMoves = 0; memMatched = 0; memSeconds = 0; memFirst = null; memLock = false;
+            const cards = [];
+            memoryPicks.forEach((p, i) => {
+                cards.push({ type: 'wrd', pair: i, text: p.en });
+                cards.push({ type: 'pic', pair: i, emoji: p.emoji });
+            });
+            shuffleArray(cards).forEach(c => {
+                const el = document.createElement('div');
+                el.className = 'memory-card';
+                el.dataset.pair = c.pair;
+                el.dataset.type = c.type;
+                el.innerHTML = `<div class="back">?</div>` +
+                    (c.type === 'pic'
+                        ? `<div class="front"><span class="pic">${c.emoji}</span></div>`
+                        : `<div class="front"><span class="wrd">${c.text}</span></div>`);
+                el.addEventListener('click', () => flipMemory(el));
+                board.appendChild(el);
+            });
+            clearInterval(memTimer);
+            memTimer = setInterval(() => { memSeconds++; updateMemoryStats(); }, 1000);
+            const s = document.getElementById('memory-status');
+            s.textContent = 'Match words and pictures!'; s.style.color = '#0f3460';
+            updateMemoryStats();
+        }
+
+        function flipMemory(el) {
+            if (memLock || el.classList.contains('flipped') || el.classList.contains('matched')) return;
+            el.classList.add('flipped');
+            if (el.dataset.type === 'wrd') speakWord(el.querySelector('.wrd').textContent.trim());
+            if (memFirst === null) { memFirst = el; return; }
+            memMoves++; updateMemoryStats();
+            if (memFirst.dataset.pair === el.dataset.pair && memFirst.dataset.type !== el.dataset.type) {
+                memFirst.classList.add('matched'); el.classList.add('matched');
+                memMatched++; memFirst = null;
+                if (memMatched === memTotal) {
+                    clearInterval(memTimer);
+                    const s = document.getElementById('memory-status');
+                    s.textContent = `🎉 You won! ${memMoves} moves, ${Math.floor(memSeconds / 60)}:${(memSeconds % 60).toString().padStart(2, '0')}`;
+                    s.style.color = '#27ae60';
+                }
+            } else {
+                memLock = true; const first = memFirst; memFirst = null;
+                setTimeout(() => { first.classList.remove('flipped'); el.classList.remove('flipped'); memLock = false; }, 700);
+            }
+        }
+
+        function updateMemoryStats() {
+            const m = document.getElementById('memory-moves');
+            const t = document.getElementById('memory-time');
+            if (m) m.textContent = memMoves;
+            if (t) t.textContent = Math.floor(memSeconds / 60) + ':' + (memSeconds % 60).toString().padStart(2, '0');
+        }
+
+        buildMemoryGame();
+    </script>
+</body>
+</html>
